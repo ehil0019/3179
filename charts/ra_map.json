@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Australia Remoteness Areas (RA 2021)",
+  "width": 800,
+  "height": 600,
+
+  "data": {
+    "url": "data/ra_2021.geojson",
+    "format": {"type": "geojson"}
+  },
+
+  "projection": {"type": "mercator"},
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+
+  "encoding": {
+    "color": {
+      "field": "properties.RA_NAME21",
+      "type": "nominal",
+      "title": "Remoteness Area"
+    },
+    "tooltip": [
+      {"field": "properties.RA_NAME21", "title": "Area"},
+      {"field": "properties.RA_CODE21", "title": "Code"}
+    ]
+  }
+}
