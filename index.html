@@ -7,11 +7,16 @@
 </head>
 
 <body>
-  <h1>DV2 – Health Facilities Map</h1>
-  <div id="ra-map"></div>
+  <h1>1. Context</h1>
+  <div class="two-column">
+  <div id="map-left"></div>
+  <div id="map-right"></div>
+</div>
 
   <script>
-    vegaEmbed('#ra-map', 'charts/health_map.json');
-  </script>
+  vegaEmbed('#map-left', 'charts/health_map.json');
+  vegaEmbed('#map-right', 'charts/ste_map.json');
+</script>
+  
 </body>
 </html>
