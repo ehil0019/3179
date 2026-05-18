@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "data": {
+    "url": "data/location_and_type.csv"
+  },
+
+  "mark": "circle",
+
+  "encoding": {
+    "longitude": {"field": "LONGITUDE", "type": "quantitative"},
+    "latitude": {"field": "LATITUDE", "type": "quantitative"},
+    "color": {"field": "NHSD_SERVICE_TYPE", "type": "nominal"},
+    "tooltip": [
+      {"field": "ORGANISATION_NAME"},
+      {"field": "SUBURB"},
+      {"field": "NHSD_SERVICE_TYPE"}
+    ]
+  }
+}
