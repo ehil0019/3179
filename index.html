@@ -1,3 +1,17 @@
-<script>
-  vegaEmbed('#ra-map', 'charts/ra_map.json');
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+  <h1>DV2 – Remoteness Areas Map</h1>
+  <div id="ra-map"></div>
+
+  <script>
+    vegaEmbed('#ra-map', 'charts/ra_map.json');
+  </script>
+</body>
+</html>
