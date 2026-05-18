@@ -1,0 +1,55 @@
+RA_CODE21,RA_NAME21,STE_CODE21,STE_NAME21,AUS_CODE21,AUS_NAME21,AREASQKM21,LOCI_URI21,ORGANISATION_NAME,SUBURB,STATE,POSTCODE,LONGITUDE,LATITUDE,NHSD_SERVICE_TYPE,GA_CLASS
+10,Major Cities of Australia,1,New South Wales,AUS,Australia,5521.9056,https://linked.data.gov.au/dataset/asgsed3/RA/10,Dr Van Lanh Nguyen Bankstown,Bankstown,NSW,2200,151.032431,-33.918751,General practice service,GP
+11,Inner Regional Australia,1,New South Wales,AUS,Australia,93342.3571,https://linked.data.gov.au/dataset/asgsed3/RA/11,Darrimba Maarra Aboriginal Health Clinic - Nambucca,Nambucca Heads,NSW,2448,153.001678466797,-30.6408767700195,Aboriginal and Torres Strait Islander health service,GP
+12,Outer Regional Australia,1,New South Wales,AUS,Australia,291314.6887,https://linked.data.gov.au/dataset/asgsed3/RA/12,Healthone Rylstone Child And Family Health Service,Rylstone,NSW,2849,149.975036621094,-32.8034973144531,"Maternal, child and family health service",GP
+13,Remote Australia,1,New South Wales,AUS,Australia,219865.5978,https://linked.data.gov.au/dataset/asgsed3/RA/13,Ochre Medical Centre Coonamble,Coonamble,NSW,2829,148.38974119761,-30.9519526794874,General practice service,GP
+14,Very Remote Australia,1,New South Wales,AUS,Australia,190753.1099,https://linked.data.gov.au/dataset/asgsed3/RA/14,White Cliffs Health Service,White Cliffs,NSW,2836,143.089996337891,-30.8503017425537,Nurse led clinic,GP
+15,Migratory - Offshore - Shipping (NSW),1,New South Wales,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/15,,,,,,,,
+19,No usual address (NSW),1,New South Wales,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/19,,,,,,,,
+20,Major Cities of Australia,2,Victoria,AUS,Australia,5055.2214,https://linked.data.gov.au/dataset/asgsed3/RA/20,Belgrave Medical Clinic,Tecoma,VIC,3160,145.347091674805,-37.9071464538574,General practice service,GP
+21,Inner Regional Australia,2,Victoria,AUS,Australia,74228.4321,https://linked.data.gov.au/dataset/asgsed3/RA/21,Eureka Medical And Dental Centre,Ballarat Central,VIC,3350,143.858506,-37.56394982,General practice service,GP
+22,Outer Regional Australia,2,Victoria,AUS,Australia,128080.1336,https://linked.data.gov.au/dataset/asgsed3/RA/22,Cunninghame Arm Medical Centre,Lakes Entrance,VIC,3909,148.000473022461,-37.8764533996582,General practice service,GP
+23,Remote Australia,2,Victoria,AUS,Australia,20132.4608,https://linked.data.gov.au/dataset/asgsed3/RA/23,Rural North West Health - Beulah Campus,Beulah,VIC,3395,142.423385620117,-35.9378166198731,General practice service,GP
+25,Migratory - Offshore - Shipping (Vic.),2,Victoria,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/25,,,,,,,,
+29,No usual address (Vic.),2,Victoria,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/29,,,,,,,,
+30,Major Cities of Australia,3,Queensland,AUS,Australia,4854.0819,https://linked.data.gov.au/dataset/asgsed3/RA/30,Ochre Medical Centre - Noosa,Noosa Heads,QLD,4567,153.091506958008,-26.3982048034668,General practice service,GP
+31,Inner Regional Australia,3,Queensland,AUS,Australia,46086.4927,https://linked.data.gov.au/dataset/asgsed3/RA/31,Toowoomba Hospital - Maternity Home Care,South Toowoomba,QLD,4350,151.944269070764,-27.5697596156494,"Maternal, child and family health service",GP
+32,Outer Regional Australia,3,Queensland,AUS,Australia,157390.7378,https://linked.data.gov.au/dataset/asgsed3/RA/32,Wambo Medical,Jandowae,QLD,4410,151.109275,-26.781142,General practice service,GP
+33,Remote Australia,3,Queensland,AUS,Australia,265322.3642,https://linked.data.gov.au/dataset/asgsed3/RA/33,Cow Bay Primary Health Centre,Diwan,QLD,4873,145.404357910156,-16.2033748626709,"Maternal, child and family health service",GP
+34,Very Remote Australia,3,Queensland,AUS,Australia,1256517.5442,https://linked.data.gov.au/dataset/asgsed3/RA/34,Saibai Island Primary Health Care Centre,Saibai Island,QLD,4875,142.621368408203,-9.37798118591309,General practice service,GP
+35,Migratory - Offshore - Shipping (Qld),3,Queensland,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/35,,,,,,,,
+39,No usual address (Qld),3,Queensland,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/39,,,,,,,,
+40,Major Cities of Australia,4,South Australia,AUS,Australia,1533.5446,https://linked.data.gov.au/dataset/asgsed3/RA/40,Blackwood Family Medical Centre,Blackwood,SA,5051,138.614963,-35.021536,General practice service,GP
+41,Inner Regional Australia,4,South Australia,AUS,Australia,15567.8145,https://linked.data.gov.au/dataset/asgsed3/RA/41,Bridge Clinic - Standen Street,Murray Bridge,SA,5253,139.272766113281,-35.1217842102051,General practice service,GP
+42,Outer Regional Australia,4,South Australia,AUS,Australia,81381.0791,https://linked.data.gov.au/dataset/asgsed3/RA/42,Mount Gambier Family Health,Mount Gambier,SA,5290,140.785766601563,-37.8318595886231,General practice service,GP
+43,Remote Australia,4,South Australia,AUS,Australia,122334.7565,https://linked.data.gov.au/dataset/asgsed3/RA/43,"Kimba District Community, Disability And Aged Services",Kimba,SA,5641,136.415863037109,-33.1435317993164,Nurse led clinic,GP
+44,Very Remote Australia,4,South Australia,AUS,Australia,763414.2255,https://linked.data.gov.au/dataset/asgsed3/RA/44,Elliston Community Health Services,Elliston,SA,5670,134.892654418945,-33.6478500366211,"Maternal, child and family health service",GP
+45,Migratory - Offshore - Shipping (SA),4,South Australia,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/45,,,,,,,,
+49,No usual address (SA),4,South Australia,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/49,,,,,,,,
+50,Major Cities of Australia,5,Western Australia,AUS,Australia,2861.008,https://linked.data.gov.au/dataset/asgsed3/RA/50,Roleystone Child Health Centre,Roleystone,WA,6111,116.068176269531,-32.1122817993164,"Maternal, child and family health service",GP
+51,Inner Regional Australia,5,Western Australia,AUS,Australia,22501.7828,https://linked.data.gov.au/dataset/asgsed3/RA/51,Waroona Child Health Centre,Waroona,WA,6215,115.92425795,-32.84293558,"Maternal, child and family health service",GP
+52,Outer Regional Australia,5,Western Australia,AUS,Australia,89656.3165,https://linked.data.gov.au/dataset/asgsed3/RA/52,Narrogin Child Health Centre,Narrogin,WA,6312,117.163101196289,-32.9373168945313,"Maternal, child and family health service",GP
+53,Remote Australia,5,Western Australia,AUS,Australia,167348.9479,https://linked.data.gov.au/dataset/asgsed3/RA/53,Banksia Medical & Health,Esperance,WA,6450,121.89258,-33.85933,General practice service,GP
+54,Very Remote Australia,5,Western Australia,AUS,Australia,2244264.4273,https://linked.data.gov.au/dataset/asgsed3/RA/54,Varley Nursing Post,Varley,WA,6355,119.511215209961,-32.7939567565918,Nurse led clinic,GP
+55,Migratory - Offshore - Shipping (WA),5,Western Australia,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/55,,,,,,,,
+59,No usual address (WA),5,Western Australia,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/59,,,,,,,,
+61,Inner Regional Australia,6,Tasmania,AUS,Australia,2283.0965,https://linked.data.gov.au/dataset/asgsed3/RA/61,Longford Child Health Centre,Longford,TAS,7301,147.12126159668,-41.5928497314453,"Maternal, child and family health service",GP
+62,Outer Regional Australia,6,Tasmania,AUS,Australia,37283.2022,https://linked.data.gov.au/dataset/asgsed3/RA/62,Ochre Medical Centre Smithton,Smithton,TAS,7330,145.124435424805,-40.8393821716309,General practice service,GP
+63,Remote Australia,6,Tasmania,AUS,Australia,25358.8755,https://linked.data.gov.au/dataset/asgsed3/RA/63,Bicheno General Practice,Bicheno,TAS,7215,148.296920776367,-41.8740730285645,General practice service,GP
+64,Very Remote Australia,6,Tasmania,AUS,Australia,3092.3651,https://linked.data.gov.au/dataset/asgsed3/RA/64,Ochre Health Medical Centre - King Island,Currie,TAS,7256,143.85789406,-39.92981715,General practice service,GP
+65,Migratory - Offshore - Shipping (Tas.),6,Tasmania,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/65,,,,,,,,
+69,No usual address (Tas.),6,Tasmania,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/69,,,,,,,,
+72,Outer Regional Australia,7,Northern Territory,AUS,Australia,3167.7034,https://linked.data.gov.au/dataset/asgsed3/RA/72,Danila Dilba - Palmerston Clinic,Palmerston City,NT,830,130.98664128,-12.48200253,Aboriginal and Torres Strait Islander health service,GP
+73,Remote Australia,7,Northern Territory,AUS,Australia,95379.9038,https://linked.data.gov.au/dataset/asgsed3/RA/73,Nganampa Health Council - Alice Springs Admin Office,Ciccone,NT,870,133.870742797852,-23.7006855010986,Aboriginal and Torres Strait Islander health service,GP
+74,Very Remote Australia,7,Northern Territory,AUS,Australia,1249586.8859,https://linked.data.gov.au/dataset/asgsed3/RA/74,Ali Curung Primary Health Centre,Ali Curung,NT,872,134.4052917,-21.0034615,General practice service,GP
+75,Migratory - Offshore - Shipping (NT),7,Northern Territory,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/75,,,,,,,,
+79,No usual address (NT),7,Northern Territory,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/79,,,,,,,,
+80,Major Cities of Australia,8,Australian Capital Territory,AUS,Australia,586.062,https://linked.data.gov.au/dataset/asgsed3/RA/80,Florey Medical Centre,Florey,ACT,2615,149.054000854492,-35.2258491516113,General practice service,GP
+81,Inner Regional Australia,8,Australian Capital Territory,AUS,Australia,1772.071,https://linked.data.gov.au/dataset/asgsed3/RA/81,,,,,,,,
+85,Migratory - Offshore - Shipping (ACT),8,Australian Capital Territory,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/85,,,,,,,,
+89,No usual address (ACT),8,Australian Capital Territory,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/89,,,,,,,,
+91,Inner Regional Australia,9,Other Territories,AUS,Australia,67.2296,https://linked.data.gov.au/dataset/asgsed3/RA/91,,,,,,,,
+94,Very Remote Australia,9,Other Territories,AUS,Australia,188.5124,https://linked.data.gov.au/dataset/asgsed3/RA/94,Indian Ocean Territory Health Service,Christmas Island,WA,6798,105.686676025391,-10.4393396377563,General practice service,GP
+95,Migratory - Offshore - Shipping (OT),9,Other Territories,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/95,,,,,,,,
+99,No usual address (OT),9,Other Territories,AUS,Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/99,,,,,,,,
+ZZ,Outside Australia,Z,Outside Australia,ZZZ,Outside Australia,,https://linked.data.gov.au/dataset/asgsed3/RA/ZZ,,,,,,,,
