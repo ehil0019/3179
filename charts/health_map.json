@@ -1,20 +1,36 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
 
-  "data": {
-    "url": "data/location_and_type.csv"
-  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/ste_2021.json",
+        "format": {"type": "geojson"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f0f0f0",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "projection": {"type": "mercator"}
+    },
 
-  "mark": "circle",
-
-  "encoding": {
-    "longitude": {"field": "LONGITUDE", "type": "quantitative"},
-    "latitude": {"field": "LATITUDE", "type": "quantitative"},
-    "color": {"field": "NHSD_SERVICE_TYPE", "type": "nominal"},
-    "tooltip": [
-      {"field": "ORGANISATION_NAME"},
-      {"field": "SUBURB"},
-      {"field": "NHSD_SERVICE_TYPE"}
-    ]
-  }
+    {
+      "data": {
+        "url": "data/location_and_type.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {"field": "LONGITUDE", "type": "quantitative"},
+        "latitude": {"field": "LATITUDE", "type": "quantitative"},
+        "color": {"field": "NHSD_SERVICE_TYPE", "type": "nominal"},
+        "tooltip": [
+          {"field": "ORGANISATION_NAME"},
+          {"field": "SUBURB"},
+          {"field": "NHSD_SERVICE_TYPE"}
+        ]
+      }
+    }
+  ]
 }
