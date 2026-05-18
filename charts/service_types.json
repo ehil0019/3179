@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "data": {
+    "url": "data/location_and_type.csv"
+  },
+
+  "mark": "rect",
+
+  "encoding": {
+    "color": {
+      "field": "NHSD_SERVICE_TYPE",
+      "type": "nominal",
+      "title": "Service Type"
+    },
+
+    "size": {
+      "aggregate": "count",
+      "title": "Number of Services"
+    },
+
+    "tooltip": [
+      {"field": "NHSD_SERVICE_TYPE", "title": "Service Type"},
+      {"aggregate": "count", "title": "Count"}
+    ]
+  }
+}
