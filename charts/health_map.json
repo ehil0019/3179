@@ -28,7 +28,7 @@
         "tooltip": [
           {"field": "ORGANISATION_NAME"},
           {"field": "SUBURB"},
-          {"field": "NHSD_SERVICE_TYPE"}
+          {"field": "GA_CLASS"}
         ]
       }
     }
