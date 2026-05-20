@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Proportion of Service Types",
 
   "data": {
     "url": "data/location_and_type.csv"
