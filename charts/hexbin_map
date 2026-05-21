@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 800,
+  "height": 600,
+  "projections": [
+    {
+      "name": "proj",
+      "type": "mercator",
+      "scale": 900,
+      "translate": [{"signal": "width/2"}, {"signal": "height/2"}],
+      "center": [134, -28]
+    }
+  ],
+  "data": [
+    {
+      "name": "points",
+      "url": "data/location_and_type.csv",
+      "format": {"type": "csv"},
+      "transform": [
+        {
+          "type": "geojson",
+          "fields": ["LONGITUDE", "LATITUDE"],
+          "signal": "point"
+        }
+      ]
+    },
+    {
+      "name": "hexes",
+      "source": "points",
+      "transform": [
+        {
+          "type": "hexbin",
+          "field": "point",
+          "radius": 12000
+        },
+        {
+          "type": "geojson",
+          "fields": ["x", "y"],
+          "signal": "hex"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": {"data": "hexes", "field": "count"},
+      "range": {"scheme": "viridis"}
+    }
+  ],
+  "marks": [
+    {
+      "type": "shape",
+      "from": {"data": "hexes"},
+      "encode": {
+        "enter": {
+          "stroke": {"value": "#333"},
+          "strokeWidth": {"value": 0.2}
+        },
+        "update": {
+          "fill": {"scale": "color", "field": "count"},
+          "shape": {"field": "hex"},
+          "tooltip": {"signal": "{'Services': datum.count}"}
+        }
+      },
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "proj"
+        }
+      ]
+    }
+  ]
+}
+
