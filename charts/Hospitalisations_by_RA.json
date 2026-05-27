@@ -17,7 +17,7 @@
     "y": {
       "field": "Rate",
       "type": "quantitative",
-      "title": "Separations per 1,000"
+      "title": "Hospitalisations per 1,000"
     },
     "color": {
       "field": "RA",
