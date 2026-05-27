@@ -1,25 +1,46 @@
 {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Population by Remoteness Area (RA 2021)",
+  "width": 800,
+  "height": 600,
+
   "data": {
-    "url": "data/ra_map.json",
-    "format": {"type": "topojson", "feature": "RA_2021"}
+    "url": "data/ra_2021.geojson",
+    "format": {"type": "geojson"}
   },
+
   "transform": [
     {
-      "lookup": "properties.RA_NAME_2021",
+      "lookup": "properties.RA_NAME21",
       "from": {
         "data": {
-          "url": "data/Population_by_RA.csv"
+          "url": "data/population_by_RA.csv"
         },
         "key": "RA",
         "fields": ["Population"]
       }
     }
   ],
-  "mark": "geoshape",
+
+  "projection": {"type": "mercator"},
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+
   "encoding": {
     "color": {
       "field": "Population",
-      "type": "quantitative"
-    }
+      "type": "quantitative",
+      "title": "Population",
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {"field": "properties.RA_NAME21", "title": "Area"},
+      {"field": "Population", "title": "Population"}
+    ]
   }
 }
+
