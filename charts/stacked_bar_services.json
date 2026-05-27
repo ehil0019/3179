@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Health Services by State and Service Type",
+  "width": 600,
+  "height": 400,
+
+  "data": {
+    "url": "/data/location_and_type.csv"
+  },
+
+  "mark": "bar",
+
+  "encoding": {
+    "x": {
+      "field": "STATE_NAME_2021",
+      "type": "nominal",
+      "title": "State",
+      "sort": ["NSW", "VIC", "QLD", "SA", "WA", "TAS", "NT", "ACT"]
+    },
+
+    "y": {
+      "aggregate": "count",
+      "title": "Number of Services"
+    },
+
+    "color": {
+      "field": "NHSD_SERVICE_TYPE",
+      "type": "nominal",
+      "title": "Service Type"
+    },
+
+    "tooltip": [
+      {"field": "STATE_NAME_2021", "title": "State"},
+      {"field": "NHSD_SERVICE_TYPE", "title": "Service Type"},
+      {"aggregate": "count", "title": "Count"}
+    ]
+  }
+}
