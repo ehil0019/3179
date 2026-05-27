@@ -12,7 +12,7 @@
 
   "encoding": {
     "x": {
-      "field": "STATE_NAME_2021",
+      "field": "STATE",
       "type": "nominal",
       "title": "State",
       "sort": ["NSW", "VIC", "QLD", "SA", "WA", "TAS", "NT", "ACT"]
@@ -30,7 +30,7 @@
     },
 
     "tooltip": [
-      {"field": "STATE_NAME_2021", "title": "State"},
+      {"field": "STATE", "title": "State"},
       {"field": "NHSD_SERVICE_TYPE", "title": "Service Type"},
       {"aggregate": "count", "title": "Count"}
     ]
