@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Hospitalisations per 1,000 people by remoteness area, 2013–2024.",
+  "data": {
+    "url": "data/Hospitalisation per 1,000 RA.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Rate",
+      "type": "quantitative",
+      "title": "Separations per 1,000"
+    },
+    "color": {
+      "field": "RA",
+      "type": "nominal",
+      "title": "Remoteness Area",
+      "scale": {
+        "scheme": "category10"
+      }
+    },
+    "tooltip": [
+      {"field": "Year"},
+      {"field": "RA"},
+      {"field": "Rate"}
+    ]
+  }
+}
