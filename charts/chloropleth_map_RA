@@ -14,7 +14,7 @@
       "lookup": "properties.RA_NAME21",
       "from": {
         "data": {
-          "url": "data/population_by_RA.csv"
+          "url": "data/Population_by_RA.csv"
         },
         "key": "RA",
         "fields": ["Population"]
