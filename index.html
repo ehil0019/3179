@@ -19,15 +19,18 @@
 
 <body>
   <h1>1. Context</h1>
-  <div class="two-column">
-  <div id="map-left"></div>
-  <div id="map-right"></div>
-</div>
+  <div id="dot-map"></div>
 
   <script>
-  vegaEmbed('#map-left', 'charts/health_map.json');
-  vegaEmbed('#map-right', 'charts/ste_map.json');
+  vegaEmbed('#dot-map', 'charts/health_map.json');
 </script>
+  
+  <div id="state"></div>
+
+  <script>
+    vegaEmbed('#state', 'charts/ste_map.json');
+  </script>
+  
 
   <h2>Distribution of Health Services in Australia</h2>
   <div id="hexbin"></div>
