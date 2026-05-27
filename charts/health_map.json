@@ -11,6 +11,7 @@
       "mark": {
         "type": "geoshape",
         "fill": "#f0f0f0",
+        "opacity": 0.3,
         "stroke": "white",
         "strokeWidth": 0.5
       },
