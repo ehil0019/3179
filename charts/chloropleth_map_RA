@@ -1,0 +1,25 @@
+{
+  "data": {
+    "url": "data/ra_map.json",
+    "format": {"type": "topojson", "feature": "RA_2021"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.RA_NAME_2021",
+      "from": {
+        "data": {
+          "url": "data/Population_by_RA.csv"
+        },
+        "key": "RA",
+        "fields": ["Population"]
+      }
+    }
+  ],
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "Population",
+      "type": "quantitative"
+    }
+  }
+}
