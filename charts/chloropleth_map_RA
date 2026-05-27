@@ -11,7 +11,7 @@
 
   "transform": [
     {
-      "lookup": "properties.RA_NAME21",
+      "lookup": "properties.ra_name_21",
       "from": {
         "data": {
           "url": "data/Population_by_RA.csv"
@@ -38,7 +38,7 @@
       "scale": {"scheme": "blues"}
     },
     "tooltip": [
-      {"field": "properties.RA_NAME21", "title": "Area"},
+      {"field": "properties.ra_name_21", "title": "Area"},
       {"field": "Population", "title": "Population"}
     ]
   }
