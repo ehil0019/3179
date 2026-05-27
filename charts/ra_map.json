@@ -19,13 +19,13 @@
 
   "encoding": {
     "color": {
-      "field": "properties.RA_NAME21",
+      "field": "properties.ra_name_21",
       "type": "nominal",
       "title": "Remoteness Area"
     },
     "tooltip": [
-      {"field": "properties.RA_NAME21", "title": "Area"},
-      {"field": "properties.RA_CODE21", "title": "Code"}
+      {"field": "properties.ra_name_21", "title": "Area"},
+      {"field": "properties.ra_code_21", "title": "Code"}
     ]
   }
 }
