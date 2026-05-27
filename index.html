@@ -23,12 +23,24 @@
   <div id="map-left"></div>
   <div id="map-right"></div>
 </div>
-  <div id="hexbin"></div>
 
   <script>
   vegaEmbed('#map-left', 'charts/health_map.json');
   vegaEmbed('#map-right', 'charts/ste_map.json');
-  vegaEmbed('#hexbin', 'charts/hexbin_map.json');
+</script>
+
+  <h2>Distribution of Health Services in Australia
+<div id="hexbin"></div>
+
+    <script>
+      vegaEmbed('#hexbin', 'charts/hexbin_map.json');
+    </script>
+
+  <h3>Hospital Separations per 1,000 People (2013–2024)</h2>
+<div id="hospitalisations"></div>
+
+<script>
+  vegaEmbed('#hospitalisations', 'charts/hospitalisations.json');
 </script>
   
 </body>
