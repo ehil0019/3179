@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Population Age Structure by Remoteness Area",
+
+  "data": {
+    "url": "data/age_distribution.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.Sex == 'Male' ? -datum.Percent : datum.Percent",
+      "as": "SignedPercent"
+    }
+  ],
+
+  "facet": {
+    "field": "RA",
+    "type": "nominal",
+    "title": "Remoteness Area",
+    "sort": ["Major cities", "Inner regional", "Outer regional", "Remote", "Very remote"]
+  },
+
+  "spec": {
+    "width": 200,
+    "height": 200,
+
+    "mark": "bar",
+
+    "encoding": {
+      "y": {
+        "field": "AgeGroup",
+        "type": "ordinal",
+        "sort": ["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75-84","85+"],
+        "title": "Age Group"
+      },
+
+      "x": {
+        "field": "SignedPercent",
+        "type": "quantitative",
+        "title": "Percent",
+        "axis": {
+          "format": "s",
+          "title": "Percent of Population",
+          "labelExpr": "abs(datum.value)"
+        }
+      },
+
+      "color": {
+        "field": "Sex",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Male", "Female"],
+          "range": ["#4C6EF5", "#F06595"]
+        },
+        "title": "Sex"
+      },
+
+      "tooltip": [
+        {"field": "RA", "title": "Remoteness Area"},
+        {"field": "Sex"},
+        {"field": "AgeGroup", "title": "Age Group"},
+        {"field": "Percent", "title": "Percent"}
+      ]
+    }
+  }
+}
