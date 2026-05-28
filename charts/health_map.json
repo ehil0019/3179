@@ -7,8 +7,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/STE_2021_AUST_GDA2020 (1).json",
-        "format": {"type": "geojson"}
+        "url": "data/STE_2021_AUST_GDA2020 (1).json"
       },
       "mark": {
         "type": "geoshape",
