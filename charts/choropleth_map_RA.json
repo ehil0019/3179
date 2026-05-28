@@ -5,8 +5,7 @@
   "height": 600,
 
   "data": {
-    "url": "data/ra_2021.geojson",
-    "format": {"type": "geojson"}
+    "url": "data/ra_2021.geojson"
   },
 
   "transform": [
