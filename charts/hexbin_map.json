@@ -4,13 +4,13 @@
   "height": 900,
   "projection": {"type": "mercator"},
   "data": {
-    "url": "data/hexbin_services.geojson",
+    "url": "hexbin_services.geojson",
     "format": {"type": "geojson"}
   },
   "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.3},
   "encoding": {
     "color": {
-      "field": "count",
+      "field": "properties.count",
       "type": "quantitative",
       "scale": {
         "type": "linear",
@@ -22,7 +22,7 @@
       }
     },
     "tooltip": [
-      {"field": "count", "type": "quantitative", "title": "Services in Hex"}
+      {"field": "properties.count", "type": "quantitative", "title": "Services in Hex"}
     ]
   }
 }
