@@ -2,30 +2,32 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 600,
-  
+
   "data": {
     "url": "data/hexbin_services.geojson",
     "format": {"type": "geojson"}
-    },
+  },
 
   "projection": {"type": "mercator"},
 
   "mark": {
-      "type": "geoshape",
-      "stroke": "#333",
-      "strokeWidth": "0.2"
-        },
-        
-      "encoding": {
-        "color": {
-          "field": "count",
-          "type": "quantitative",
-          "title": "Number of Services",
-          "scale": {"scheme": "viridis"}
-        },
-        "tooltip": [
-          {"field": "count", "title": "Distribution of services"}
-      ]
-    }
-}
+    "type": "geoshape",
+    "stroke": "#333",
+    "strokeWidth": 0.2
+  },
 
+  "encoding": {
+    "color": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Number of Services",
+      "scale": {
+        "scheme": "purples",
+        "reverse": false
+      }
+    },
+    "tooltip": [
+      {"field": "count", "title": "Services in Hex"}
+    ]
+  }
+}
