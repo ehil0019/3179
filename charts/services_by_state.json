@@ -5,7 +5,7 @@
   "height": 400,
 
   "data": {
-    "url": "../data/location_and_type.csv"
+    "url": "data/location_and_type.csv"
   },
 
   "mark": "bar",
