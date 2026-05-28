@@ -1,0 +1,105 @@
+RA,Sex,AgeGroup,Percent
+Major cities,Male,0-4,6.0
+Major cities,Female,0-4,5.5
+Major cities,Male,5-14,12.7
+Major cities,Female,5-14,11.7
+Major cities,Male,15-24,13.6
+Major cities,Female,15-24,12.5
+Major cities,Male,25-34,16.0
+Major cities,Female,25-34,15.6
+Major cities,Male,35-44,14.8
+Major cities,Female,35-44,14.7
+Major cities,Male,45-54,12.3
+Major cities,Female,45-54,12.4
+Major cities,Male,55-64,10.5
+Major cities,Female,55-64,10.8
+Major cities,Male,65-74,7.9
+Major cities,Female,65-74,8.7
+Major cities,Male,75-84,4.8
+Major cities,Female,75-84,5.5
+Major cities,Male,85+,1.6
+Major cities,Female,85+,2.4
+
+Inner regional,Male,0-4,5.6
+Inner regional,Female,0-4,5.2
+Inner regional,Male,5-14,12.8
+Inner regional,Female,5-14,11.9
+Inner regional,Male,15-24,11.8
+Inner regional,Female,15-24,10.7
+Inner regional,Male,25-34,11.3
+Inner regional,Female,25-34,11.2
+Inner regional,Male,35-44,11.6
+Inner regional,Female,35-44,11.9
+Inner regional,Male,45-54,12.1
+Inner regional,Female,45-54,12.4
+Inner regional,Male,55-64,13.1
+Inner regional,Female,55-64,13.6
+Inner regional,Male,65-74,12.3
+Inner regional,Female,65-74,12.6
+Inner regional,Male,75-84,7.4
+Inner regional,Female,75-84,7.7
+Inner regional,Male,85+,2.1
+Inner regional,Female,85+,3.0
+
+Outer regional,Male,0-4,5.6
+Outer regional,Female,0-4,5.4
+Outer regional,Male,5-14,12.6
+Outer regional,Female,5-14,12.1
+Outer regional,Male,15-24,11.6
+Outer regional,Female,15-24,10.6
+Outer regional,Male,25-34,12.0
+Outer regional,Female,25-34,12.1
+Outer regional,Male,35-44,11.6
+Outer regional,Female,35-44,12.2
+Outer regional,Male,45-54,12.2
+Outer regional,Female,45-54,12.6
+Outer regional,Male,55-64,13.8
+Outer regional,Female,55-64,13.9
+Outer regional,Male,65-74,12.1
+Outer regional,Female,65-74,11.7
+Outer regional,Male,75-84,6.7
+Outer regional,Female,75-84,6.8
+Outer regional,Male,85+,1.8
+Outer regional,Female,85+,2.5
+
+Remote,Male,0-4,6.6
+Remote,Female,0-4,6.7
+Remote,Male,5-14,13.5
+Remote,Female,5-14,13.7
+Remote,Male,15-24,10.8
+Remote,Female,15-24,10.4
+Remote,Male,25-34,14.3
+Remote,Female,25-34,15.5
+Remote,Male,35-44,13.8
+Remote,Female,35-44,14.0
+Remote,Male,45-54,12.5
+Remote,Female,45-54,12.5
+Remote,Male,55-64,13.2
+Remote,Female,55-64,12.5
+Remote,Male,65-74,9.5
+Remote,Female,65-74,8.7
+Remote,Male,75-84,4.6
+Remote,Female,75-84,4.5
+Remote,Male,85+,1.2
+Remote,Female,85+,1.6
+
+Very remote,Male,0-4,6.6
+Very remote,Female,0-4,6.9
+Very remote,Male,5-14,14.1
+Very remote,Female,5-14,14.7
+Very remote,Male,15-24,12.6
+Very remote,Female,15-24,13.2
+Very remote,Male,25-34,16.7
+Very remote,Female,25-34,17.2
+Very remote,Male,35-44,14.6
+Very remote,Female,35-44,14.4
+Very remote,Male,45-54,12.7
+Very remote,Female,45-54,11.9
+Very remote,Male,55-64,11.7
+Very remote,Female,55-64,11.1
+Very remote,Male,65-74,7.4
+Very remote,Female,65-74,6.8
+Very remote,Male,75-84,3.0
+Very remote,Female,75-84,2.9
+Very remote,Male,85+,0.5
+Very remote,Female,85+,0.8
