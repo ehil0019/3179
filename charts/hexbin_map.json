@@ -4,7 +4,7 @@
   "height": 900,
   "projection": {"type": "mercator"},
   "data": {
-    "url": "hexbin_services.geojson",
+    "url": "data/hexbin_services.geojson",
     "format": {"type": "geojson"}
   },
   "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.3},
