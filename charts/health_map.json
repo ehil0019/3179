@@ -5,7 +5,7 @@
   "layer": [
     {
       "data": {
-        "url": "STE_2021_AUST_GDA2020 (1).json",
+        "url": "data/STE_2021_AUST_GDA2020 (1).json",
         "format": {"type": "geojson"}
       },
       "mark": {
