@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Age Distribution Across Remoteness Areas",
+
+  "data": {
+    "url": "data/age_distribution.csv"
+  },
+
+  "mark": "boxplot",
+
+  "encoding": {
+    "x": {
+      "field": "RA",
+      "type": "nominal",
+      "title": "Remoteness Area",
+      "sort": [
+        "Major cities",
+        "Inner regional",
+        "Outer regional",
+        "Remote",
+        "Very remote"
+      ]
+    },
+
+    "y": {
+      "field": "Percent",
+      "type": "quantitative",
+      "title": "Age Distribution (%)"
+    },
+
+    "color": {
+      "field": "RA",
+      "type": "nominal",
+      "legend": null
+    },
+
+    "tooltip": [
+      {"field": "RA", "type": "nominal"},
+      {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+      {"field": "Percent", "type": "quantitative", "title": "Percent"}
+    ]
+  }
+}
