@@ -2,6 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Distribution of Health Services Australia",
 
+  "projection": {"type": "mercator"},
+
   "layer": [
     {
       "data": {
@@ -14,8 +16,7 @@
         "opacity": 0.3,
         "stroke": "white",
         "strokeWidth": 0.5
-      },
-      "projection": {"type": "mercator"}
+      }
     },
 
     {
