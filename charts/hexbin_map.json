@@ -3,8 +3,7 @@
   "width": 800,
   "height": 600,
   "data": {
-    "url": "data/hexbin_services.geojson",
-    "format": {"type": "geojson"}
+    "url": "data/hexbin_services.geojson"
   },
   "projection": {"type": "mercator"},
   "mark": {
