@@ -14,7 +14,7 @@
     "x": {
       "field": "STATE",
       "type": "nominal",
-      "title": "State",
+      "title": "State"
     },
 
     "y": {
