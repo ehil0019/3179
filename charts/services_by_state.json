@@ -10,6 +10,39 @@
 
   "mark": "bar",
 
+  "transform": [
+  {
+    "calculate": "
+      datum.NHSD_SERVICE_TYPE == 'General practice service' || 
+      datum.NHSD_SERVICE_TYPE == 'General practice skin cancer service' || 
+      datum.NHSD_SERVICE_TYPE == 'Medical deputising service' 
+        ? 'Primary Care' :
+
+      datum.NHSD_SERVICE_TYPE == 'Maternal, child and family health service'
+        ? 'Child & Family Health' :
+
+      datum.NHSD_SERVICE_TYPE == 'Aboriginal and Torres Strait Islander health service'
+        ? 'Indigenous Health' :
+
+      datum.NHSD_SERVICE_TYPE == 'Hospital service' ||
+      datum.NHSD_SERVICE_TYPE == 'Hospital general medicine service' ||
+      datum.NHSD_SERVICE_TYPE == 'Hospital pharmacy service' ||
+      datum.NHSD_SERVICE_TYPE == 'Hospital-based outpatient clinic' ||
+      datum.NHSD_SERVICE_TYPE == 'Emergency department service'
+        ? 'Hospital & Emergency' :
+
+      datum.NHSD_SERVICE_TYPE == 'Nurse led clinic' ||
+      datum.NHSD_SERVICE_TYPE == 'Nurse practitioner led clinic' ||
+      datum.NHSD_SERVICE_TYPE == 'Walk-in centre'
+        ? 'Nursing & Walk-in Care' :
+
+      'Other'
+    ",
+    "as": "Service_Group"
+  }
+],
+
+
   "encoding": {
     "x": {
       "field": "STATE",
@@ -23,7 +56,7 @@
     },
 
     "color": {
-      "field": "NHSD_SERVICE_TYPE",
+      "field": "Service_Group",
       "type": "nominal",
       "title": "Service Type"
     },
