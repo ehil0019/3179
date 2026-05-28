@@ -4,16 +4,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <style>
-  .two-column {
-    display: flex;
-    gap: 20px;
-  }
 
-  .two-column > div {
-    flex: 1;
-  }
-</style>
 
 </head>
 
@@ -44,7 +35,7 @@
     vegaEmbed('#hexbin', 'charts/hexbin_map.json');
 </script>
 
-  <h3>Hospital Separations per 1,000 People (2013–2024)</h3>
+  <h3>Hospitalisations per 1,000 People (2013–2024)</h3>
   <div id="hospitalisations"></div>
 
 <script>
@@ -55,7 +46,7 @@
 <div id="services-state"></div>
 
 <script>
-  vegaEmbed('#services-state', 'charts/stacked_bar_services.json');
+  vegaEmbed('#services-state', 'charts/services_by_state.json');
 </script>
 
   
