@@ -9,7 +9,7 @@
   "data": {
     "url": "data/ra_2021.geojson",
     "format": {
-      "type": "topojson",
+      "type": "geojson",
       "feature": "RA_2021_AUST_GDA94"
     }
   },
