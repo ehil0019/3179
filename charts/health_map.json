@@ -10,7 +10,15 @@
       "value": "All",
       "bind": {
         "input": "select",
-        "options": ["All", "Hospital", "GP", "Pharmacy", "Allied Health", "Other"],
+        "options": [
+          "All",
+          "Primary Care",
+          "Child & Family Health",
+          "Indigenous Health",
+          "Hospital & Emergency",
+          "Nursing & Walk-in Care",
+          "Other"
+        ],
         "name": "Service Type: "
       }
     }
@@ -41,7 +49,30 @@
 
       "transform": [
         {
-          "filter": "serviceType == 'All' || datum.GA_CLASS == serviceType"
+          "calculate": 
+            "datum.NHSD_SERVICE_TYPE == 'General practice service' || " +
+            "datum.NHSD_SERVICE_TYPE == 'General practice skin cancer service' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Medical deputising service' ? 'Primary Care' : " +
+
+            "datum.NHSD_SERVICE_TYPE == 'Maternal, child and family health service' ? 'Child & Family Health' : " +
+
+            "datum.NHSD_SERVICE_TYPE == 'Aboriginal and Torres Strait Islander health service' ? 'Indigenous Health' : " +
+
+            "datum.NHSD_SERVICE_TYPE == 'Hospital service' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Hospital general medicine service' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Hospital pharmacy service' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Hospital-based outpatient clinic' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Emergency department service' ? 'Hospital & Emergency' : " +
+
+            "datum.NHSD_SERVICE_TYPE == 'Nurse led clinic' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Nurse practitioner led clinic' || " +
+            "datum.NHSD_SERVICE_TYPE == 'Walk-in centre' ? 'Nursing & Walk-in Care' : " +
+
+            "'Other'",
+          "as": "Service_Group"
+        },
+        {
+          "filter": "serviceType == 'All' || datum.Service_Group == serviceType"
         }
       ],
 
@@ -56,15 +87,14 @@
       "encoding": {
         "longitude": {"field": "LONGITUDE", "type": "quantitative"},
         "latitude": {"field": "LATITUDE", "type": "quantitative"},
-        "color": {"field": "GA_CLASS", "type": "nominal"},
+        "color": {"field": "Service_Group", "type": "nominal"},
         "tooltip": [
           {"field": "ORGANISATION_NAME"},
           {"field": "SUBURB"},
-          {"field": "GA_CLASS"}
+          {"field": "Service_Group"}
         ]
       }
     }
   ]
 }
-
 
