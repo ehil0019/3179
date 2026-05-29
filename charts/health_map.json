@@ -1,13 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Distribution of Health Services Australia",
+  "title": "Distribution of Health Services Across Australia",
 
   "projection": {"type": "mercator"},
+
+  "params": [
+    {
+      "name": "serviceType",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Hospital", "GP", "Pharmacy", "Allied Health", "Other"],
+        "name": "Service Type: "
+      }
+    }
+  ],
 
   "layer": [
     {
       "data": {
-        "url": "data/STE_2021_AUST_GDA2020 (1).json"
+        "url": "data/STE_2021.json",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021"
+        }
       },
       "mark": {
         "type": "geoshape",
@@ -22,7 +38,21 @@
       "data": {
         "url": "data/location_and_type.csv"
       },
-      "mark": "circle",
+
+      "transform": [
+        {
+          "filter": "serviceType == 'All' || datum.GA_CLASS == serviceType"
+        }
+      ],
+
+      "mark": {
+        "type": "circle",
+        "size": 20,
+        "opacity": 0.35,
+        "stroke": "white",
+        "strokeWidth": 0.3
+      },
+
       "encoding": {
         "longitude": {"field": "LONGITUDE", "type": "quantitative"},
         "latitude": {"field": "LATITUDE", "type": "quantitative"},
@@ -36,3 +66,5 @@
     }
   ]
 }
+
+
