@@ -59,12 +59,12 @@
       "encoding": {
         "color": {
           "condition": {
-            "test": "datum.age_std_rate === null || datum.age_std_rate === ''",
+            "test": "!isValid(datum.age_std_rate)",
             "value": "#e0e0e0"
           },
           "field": "age_std_rate",
           "type": "quantitative",
-          "title": "Deaths per 100,000\n(age-standardised)",
+          "title": "Deaths per 100,000",
           "scale": {
             "scheme": "orangered",
             "domainMin": 0
@@ -78,12 +78,7 @@
         "tooltip": [
           {"field": "remoteness_area", "type": "nominal", "title": "Remoteness Area"},
           {"field": "condition", "type": "nominal", "title": "Condition"},
-          {
-            "field": "age_std_rate",
-            "type": "quantitative",
-            "title": "Deaths per 100,000",
-            "format": ".1f"
-          }
+          {"field": "age_std_rate", "type": "quantitative", "title": "Deaths per 100,000", "format": ".1f"}
         ]
       }
     },
@@ -93,7 +88,7 @@
         "fontSize": 10
       },
       "transform": [
-        {"filter": "datum.age_std_rate !== null && datum.age_std_rate !== ''"}
+        {"filter": "isValid(datum.age_std_rate)"}
       ],
       "encoding": {
         "text": {
