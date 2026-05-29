@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": "Population by Remoteness Area (RA)",
+  "title": "Population by Remoteness Area (Interactive)",
 
   "width": "container",
   "height": 500,
@@ -43,45 +43,38 @@
   "layer": [
     {
       "data": {
-    "url": "data/ra_2021.json",
-    "format": {
-      "type": "topojson",
-      "feature": "RA_2021"
-    }
-  },
-
-  "transform": [
-    {
-      "lookup": "properties.RA_NAME21",
-      "from": {
-        "data": {"url": "data/Population_by_RA.csv"},
-        "key": "RA",
-        "fields": ["Population"]
-      }
-    }
-  ],
-
-  "mark": {
-    "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 0.5
-  },
-
-  "encoding": {
-    "color": {
-      "field": "Population",
-      "type": "threshold",
-      "domain": [500000, 2000000, 5000000, 10000000, 20000000],
+        "url": "data/ra_2021.json",
+        "format": {"type": "topojson", "feature": "RA_2021"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.RA_NAME21",
+          "from": {
+            "data": {"url": "data/Population_by_RA.csv"},
+            "key": "RA",
+            "fields": ["Population"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [500000, 2000000, 5000000, 10000000, 20000000],
             "range": ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]
           },
-      "title": "Population"
-    },
-    "tooltip": [
-      {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
-      {"field": "Population", "title": "Population"}
-    ]
-  }
+          "title": "Population (classed)"
+        },
+        "tooltip": [
+          {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
+          {"field": "Population", "title": "Population"}
+        ]
+      }
+    }
+  ]
 }
-]
-}
+
 
