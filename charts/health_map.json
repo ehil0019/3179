@@ -8,21 +8,9 @@
 
   "params": [
     {
-      "name": "serviceType",
-      "value": "All",
-      "bind": {
-        "input": "select",
-        "options": [
-          "All",
-          "Primary Care",
-          "Child & Family Health",
-          "Indigenous Health",
-          "Hospital & Emergency",
-          "Nursing & Walk-in Care",
-          "Other"
-        ],
-        "name": "Service Type: "
-      }
+      "name": "serviceSelect",
+      "select": {"type": "point", "fields": ["Service_Group"], "toggle": "true"},
+      "bind": "legend"
     }
   ],
 
@@ -55,7 +43,7 @@
     "as": "Service_Group"
         },
         {
-          "filter": "serviceType == 'All' || datum.Service_Group == serviceType"
+          "filter": "serviceSelect.Service_Group == null || indexof(serviceSelect.Service_Group, datum.Service_Group) >= 0"
         }
       ],
 
@@ -70,7 +58,7 @@
       "encoding": {
         "longitude": {"field": "LONGITUDE", "type": "quantitative"},
         "latitude": {"field": "LATITUDE", "type": "quantitative"},
-        "color": {"field": "Service_Group", "type": "nominal"},
+        "color": {"field": "Service_Group", "type": "nominal", "legend": {"title": "Service Type"}},
         "tooltip": [
           {"field": "ORGANISATION_NAME"},
           {"field": "SUBURB"},
