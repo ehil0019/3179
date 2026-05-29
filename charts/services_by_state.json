@@ -3,42 +3,74 @@
   "title": "Health Services by State and Service Type",
   "width": 600,
   "height": 400,
-
   "data": {
     "url": "data/location_and_type.csv"
   },
-
   "mark": "bar",
-
   "transform": [
     {
       "calculate": "datum.NHSD_SERVICE_TYPE == 'General practice service' || datum.NHSD_SERVICE_TYPE == 'General practice skin cancer service' || datum.NHSD_SERVICE_TYPE == 'Medical deputising service' ? 'Primary Care' : datum.NHSD_SERVICE_TYPE == 'Maternal, child and family health service' ? 'Child & Family Health' : datum.NHSD_SERVICE_TYPE == 'Aboriginal and Torres Strait Islander health service' ? 'Indigenous Health' : datum.NHSD_SERVICE_TYPE == 'Hospital service' || datum.NHSD_SERVICE_TYPE == 'Hospital general medicine service' || datum.NHSD_SERVICE_TYPE == 'Hospital pharmacy service' || datum.NHSD_SERVICE_TYPE == 'Hospital-based outpatient clinic' || datum.NHSD_SERVICE_TYPE == 'Emergency department service' ? 'Hospital & Emergency' : datum.NHSD_SERVICE_TYPE == 'Nurse led clinic' || datum.NHSD_SERVICE_TYPE == 'Nurse practitioner led clinic' || datum.NHSD_SERVICE_TYPE == 'Walk-in centre' ? 'Nursing & Walk-in Care' : 'Other'",
       "as": "Service_Group"
     }
   ],
-
   "encoding": {
     "x": {
       "field": "STATE",
       "type": "nominal",
-      "title": "State"
+      "title": "State",
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "normal"
+      }
     },
-
     "y": {
       "aggregate": "count",
-      "title": "Number of Services"
+      "title": "Share of Services",
+      "stack": "normalize",
+      "axis": {
+        "format": "%",
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "normal"
+      }
     },
-
     "color": {
       "field": "Service_Group",
       "type": "nominal",
-      "title": "Service Category"
+      "title": "Service Category",
+      "scale": {
+        "domain": [
+          "Primary Care",
+          "Hospital & Emergency",
+          "Indigenous Health",
+          "Child & Family Health",
+          "Nursing & Walk-in Care",
+          "Other"
+        ],
+        "range": [
+          "#4e79a7",
+          "#e15759",
+          "#f28e2b",
+          "#76b7b2",
+          "#59a14f",
+          "#bab0ac"
+        ]
+      },
+      "legend": {
+        "titleFontSize": 11,
+        "labelFontSize": 10
+      }
     },
-
     "tooltip": [
       {"field": "STATE", "title": "State"},
       {"field": "Service_Group", "title": "Service Category"},
-      {"aggregate": "count", "title": "Count"}
+      {"aggregate": "count", "title": "Count"},
+      {
+        "aggregate": "count",
+        "title": "Share",
+        "format": ".1%"
+      }
     ]
   }
 }
