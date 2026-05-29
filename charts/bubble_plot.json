@@ -75,7 +75,7 @@
           {"field": "population_000", "type": "quantitative", "title": "Population (thousands)", "format": ",.1f"}
         ]
       }
-    },
+    }
     {
       "mark": {
         "type": "text",
@@ -89,7 +89,7 @@
         "y": {"field": "separations_per_1000", "type": "quantitative"},
         "text": {"field": "state", "type": "nominal"}
       }
-    },
+    }
   ],
   "config": {
     "view": {"stroke": null},
