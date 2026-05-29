@@ -11,11 +11,15 @@
     {
       "calculate": "datum.Sex == 'Male' ? -datum.Percent : datum.Percent",
       "as": "SignedPercent"
-    }
+    },
+    {
+      "calculate": "replace(replace(replace(datum.RA, /\\s+/g, ' '), /\\u00A0/g, ' '), /^\\s+|\\s+$/g, '')",
+      "as": "CleanRA"
+    }   
   ],
 
   "facet": {
-    "field": "RA",
+    "field": "CleanRA",
     "type": "nominal",
     "title": "Remoteness Area",
     "sort": ["Major cities", "Inner regional", "Outer regional", "Remote", "Very remote"]
