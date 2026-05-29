@@ -36,7 +36,7 @@
       "type": "quantitative",
       "scale": {
         "type": "threshold",
-            "domain": [500000, 2000000, 5000000, 10000000, 20000000],
+            "domain": [300000, 2000000, 5000000, 10000000, 20000000],
             "range": ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]
           },
       "title": "Population"
