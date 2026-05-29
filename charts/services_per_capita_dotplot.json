@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "title": "Services per 10,000 People by State",
-  "width": 900,
-  "height": 700,
+  "width": 600,
+  "height": 400,
 
   "data": {
     "url": "data/services_per_capita.csv"
