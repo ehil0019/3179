@@ -1,0 +1,71 @@
+remoteness_area,condition,age_std_rate
+Major Cities,Coronary heart disease,46.7
+Major Cities,Dementia,45.5
+Major Cities,Cerebrovascular disease,25.9
+Major Cities,Lung cancer,24.0
+Major Cities,COPD,17.9
+Major Cities,COVID-19,15.9
+Major Cities,Diabetes,15.4
+Major Cities,Colorectal cancer,14.7
+Major Cities,Accidental falls,10.9
+Major Cities,Heart failure,10.0
+Major Cities,Suicide,
+Major Cities,Land transport accidents,
+Major Cities,Prostate cancer,
+Major Cities,Kidney failure,
+Inner Regional,Coronary heart disease,52.8
+Inner Regional,Dementia,41.4
+Inner Regional,Cerebrovascular disease,28.6
+Inner Regional,Lung cancer,28.6
+Inner Regional,COPD,25.3
+Inner Regional,Diabetes,17.1
+Inner Regional,Colorectal cancer,17.4
+Inner Regional,COVID-19,12.3
+Inner Regional,Prostate cancer,11.9
+Inner Regional,Heart failure,11.2
+Inner Regional,Suicide,
+Inner Regional,Land transport accidents,
+Inner Regional,Accidental falls,
+Inner Regional,Kidney failure,
+Outer Regional,Coronary heart disease,59.2
+Outer Regional,Dementia,39.0
+Outer Regional,Lung cancer,33.6
+Outer Regional,COPD,29.9
+Outer Regional,Cerebrovascular disease,27.1
+Outer Regional,Diabetes,19.6
+Outer Regional,Colorectal cancer,18.2
+Outer Regional,Prostate cancer,12.7
+Outer Regional,COVID-19,11.7
+Outer Regional,Heart failure,
+Outer Regional,Accidental falls,
+Outer Regional,Suicide,
+Outer Regional,Land transport accidents,
+Outer Regional,Kidney failure,
+Remote,Coronary heart disease,69.7
+Remote,Lung cancer,31.3
+Remote,COPD,32.0
+Remote,Dementia,34.9
+Remote,Diabetes,27.8
+Remote,Cerebrovascular disease,26.6
+Remote,Suicide,21.3
+Remote,Colorectal cancer,15.6
+Remote,Land transport accidents,16.2
+Remote,Heart failure,
+Remote,COVID-19,
+Remote,Accidental falls,
+Remote,Prostate cancer,
+Remote,Kidney failure,
+Very Remote,Coronary heart disease,96.4
+Very Remote,Diabetes,55.1
+Very Remote,COPD,42.6
+Very Remote,Dementia,45.6
+Very Remote,Lung cancer,34.6
+Very Remote,Suicide,24.5
+Very Remote,Cerebrovascular disease,29.7
+Very Remote,Land transport accidents,19.6
+Very Remote,Kidney failure,17.3
+Very Remote,Colorectal cancer,17.4
+Very Remote,Heart failure,
+Very Remote,COVID-19,
+Very Remote,Accidental falls,
+Very Remote,Prostate cancer,
