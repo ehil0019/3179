@@ -21,7 +21,7 @@
           "field": "services_per_100k",
           "type": "quantitative",
           "title": "Services per 100,000 people  (axis starts at 40)",
-          "scale": { "domain": [40, 72] },
+          "scale": { "domain": [40, 70] },
           "axis": {
             "grid": true,
             "gridOpacity": 0.3,
