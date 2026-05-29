@@ -36,7 +36,7 @@
       "title": "Population"
     },
     "tooltip": [
-      {"field": "properties.RA_NAME21, "title": "Remoteness Area"},
+      {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
       {"field": "Population", "title": "Population"}
     ]
   },
