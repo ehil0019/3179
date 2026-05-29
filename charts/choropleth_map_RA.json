@@ -1,80 +1,49 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": "Population by Remoteness Area (Interactive)",
+  "title": "Population by Remoteness Area (RA)",
 
-  "width": "container",
-  "height": 500,
+  "data": {
+    "url": "data/ra_2021.json",
+    "format": {
+      "type": "topojson",
+      "feature": "RA_2021"
+    }
+  },
 
-  "params": [
+  "transform": [
     {
-      "name": "zoom_level",
-      "value": 2500,
-      "bind": {
-        "input": "range",
-        "min": 800,
-        "max": 8000,
-        "step": 100,
-        "name": "Zoom: "
-      }
-    },
-    {
-      "name": "center_to",
-      "value": [134, -28],
-      "bind": {
-        "input": "select",
-        "options": [
-          [134, -28],
-          [145, -37.8],
-          [138, -20]
-        ],
-        "labels": ["Australia (default)", "Melbourne", "Northern Australia"],
-        "name": "Map Centre: "
+      "lookup": "properties.RA_NAME21",
+      "from": {
+        "data": {"url": "data/Population_by_RA.csv"},
+        "key": "RA",
+        "fields": ["Population"]
       }
     }
   ],
 
-  "projection": {
-    "type": "equirectangular",
-    "center": {"expr": "center_to"},
-    "scale": {"expr": "zoom_level"}
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
   },
 
-  "layer": [
-    {
-      "data": {
-        "url": "data/ra_2021.json",
-        "format": {"type": "topojson", "feature": "RA_2021"}
-      },
-      "transform": [
-        {
-          "lookup": "properties.RA_NAME21",
-          "from": {
-            "data": {"url": "data/Population_by_RA.csv"},
-            "key": "RA",
-            "fields": ["Population"]
-          }
-        }
-      ],
-      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
-      "encoding": {
-        "color": {
-          "field": "Population",
-          "type": "quantitative",
-          "scale": {
-            "type": "threshold",
+  "encoding": {
+    "color": {
+      "field": "Population",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
             "domain": [500000, 2000000, 5000000, 10000000, 20000000],
             "range": ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]
           },
-          "title": "Population (classed)"
-        },
-        "tooltip": [
-          {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
-          {"field": "Population", "title": "Population"}
-        ]
-      }
-    }
-  ]
+      "title": "Population"
+    },
+    "tooltip": [
+      {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
+      {"field": "Population", "title": "Population"}
+    ]
+  },
+
+  "projection": {"type": "mercator"}
 }
-
-
