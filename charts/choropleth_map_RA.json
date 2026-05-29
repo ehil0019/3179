@@ -4,8 +4,11 @@
   "title": "Population by Remoteness Area (RA)",
 
   "data": {
-    "url": "data/ra_2021.geojson",
-    "format": {"type": "geojson"}
+    "url": "data/ra_2021.json",
+    "format": {
+      "type": "topojson",
+      "feature": "RA_2021"
+    }
   },
 
   "transform": [
