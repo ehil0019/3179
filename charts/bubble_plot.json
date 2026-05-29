@@ -20,7 +20,7 @@
         "x": {
           "field": "services_per_100k",
           "type": "quantitative",
-          "title": "Services per 100,000 people  ⚠ axis starts at 40",
+          "title": "Services per 100,000 people  (axis starts at 40)",
           "scale": { "domain": [40, 72] },
           "axis": {
             "grid": true,
@@ -90,39 +90,6 @@
         "text": {"field": "state", "type": "nominal"}
       }
     },
-    {
-      "transform": [{"filter": "datum.state === 'NT'"}],
-      "mark": {
-        "type": "text",
-        "dx": 14,
-        "dy": 10,
-        "fontSize": 11,
-        "fontStyle": "italic",
-        "color": "#c0392b",
-        "align": "left"
-      },
-      "encoding": {
-        "x": {"field": "services_per_100k", "type": "quantitative"},
-        "y": {"field": "separations_per_1000", "type": "quantitative"},
-        "text": {"value": "Similar service density,\nbut 2× the separation rate"}
-      }
-    },
-    {
-      "transform": [{"filter": "datum.state === 'NT'"}],
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": false,
-        "stroke": "#c0392b",
-        "strokeWidth": 2,
-        "opacity": 1,
-        "size": 2800
-      },
-      "encoding": {
-        "x": {"field": "services_per_100k", "type": "quantitative"},
-        "y": {"field": "separations_per_1000", "type": "quantitative"}
-      }
-    }
   ],
   "config": {
     "view": {"stroke": null},
