@@ -13,7 +13,7 @@
 
   "transform": [
     {
-      "lookup": "properties.ra_name_2021",
+      "lookup": "properties.RA_NAME21",
       "from": {
         "data": {"url": "data/Population_by_RA.csv"},
         "key": "RA",
@@ -36,7 +36,7 @@
       "title": "Population"
     },
     "tooltip": [
-      {"field": "properties.ra_name_2021", "title": "Remoteness Area"},
+      {"field": "properties.RA_NAME21, "title": "Remoteness Area"},
       {"field": "Population", "title": "Population"}
     ]
   },
