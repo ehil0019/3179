@@ -1,0 +1,157 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bubble plot: services per 100k vs separations per 1,000 people by state, sized by population",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "data/bubble_data.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "opacity": 0.75,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "services_per_100k",
+          "type": "quantitative",
+          "title": "Services per 100,000 people",
+          "axis": {
+            "grid": true,
+            "gridOpacity": 0.3,
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titleFontWeight": "normal"
+          }
+        },
+        "y": {
+          "field": "separations_per_1000",
+          "type": "quantitative",
+          "title": "Hospital separations per 1,000 people",
+          "axis": {
+            "grid": true,
+            "gridOpacity": 0.3,
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titleFontWeight": "normal"
+          }
+        },
+        "size": {
+          "field": "population_000",
+          "type": "quantitative",
+          "title": "Population (thousands)",
+          "scale": {
+            "range": [
+              200,
+              3000
+            ]
+          },
+          "legend": {
+            "title": "Population (thousands)",
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "values": [
+              300,
+              1000,
+              3000,
+              7000
+            ]
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State / Territory",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "NT",
+              "ACT"
+            ],
+            "range": [
+              "#1f77b4",
+              "#ff7f0e",
+              "#2ca02c",
+              "#d62728",
+              "#9467bd",
+              "#8c564b",
+              "#e377c2",
+              "#7f7f7f"
+            ]
+          },
+          "legend": {
+            "title": "State / Territory",
+            "titleFontSize": 11,
+            "labelFontSize": 10
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "services_per_100k",
+            "type": "quantitative",
+            "title": "Services per 100k",
+            "format": ".1f"
+          },
+          {
+            "field": "separations_per_1000",
+            "type": "quantitative",
+            "title": "Separations per 1,000",
+            "format": ".1f"
+          },
+          {
+            "field": "population_000",
+            "type": "quantitative",
+            "title": "Population (thousands)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#333"
+      },
+      "encoding": {
+        "x": {
+          "field": "services_per_100k",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "separations_per_1000",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": null,
+    "font": "sans-serif"
+  }
+}
