@@ -37,7 +37,7 @@
       },
       "encoding": {
         "y": {
-          "field": "State",
+          "field": "STATE",
           "type": "nominal",
           "sort": ["NSW","VIC","QLD","SA","WA","TAS","NT","ACT"]
         },
