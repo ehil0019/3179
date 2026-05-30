@@ -1,11 +1,12 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Distribution of Health Services Across Australia",
   "width": 900,
   "height": 700,
-
-  "projection": {"type": "mercator"},
-
+  "projection": {
+    "type": "mercator"
+  },
   "params": [
     {
       "name": "serviceType",
@@ -25,7 +26,6 @@
       }
     }
   ],
-
   "layer": [
     {
       "data": {
@@ -37,44 +37,81 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#f0f0f0",
-        "opacity": 0.3,
-        "stroke": "white",
-        "strokeWidth": 0.5
+        "fill": "#d4d4d4",
+        "opacity": 1,
+        "stroke": "#aaaaaa",
+        "strokeWidth": 0.8
       }
     },
-
     {
       "data": {
         "url": "data/location_and_type.csv"
       },
-
       "transform": [
         {
           "calculate": "datum.NHSD_SERVICE_TYPE == 'General practice service' || datum.NHSD_SERVICE_TYPE == 'General practice skin cancer service' || datum.NHSD_SERVICE_TYPE == 'Medical deputising service' ? 'Primary Care' : datum.NHSD_SERVICE_TYPE == 'Maternal, child and family health service' ? 'Child & Family Health' : datum.NHSD_SERVICE_TYPE == 'Aboriginal and Torres Strait Islander health service' ? 'Indigenous Health' : datum.NHSD_SERVICE_TYPE == 'Hospital service' || datum.NHSD_SERVICE_TYPE == 'Hospital general medicine service' || datum.NHSD_SERVICE_TYPE == 'Hospital pharmacy service' || datum.NHSD_SERVICE_TYPE == 'Hospital-based outpatient clinic' || datum.NHSD_SERVICE_TYPE == 'Emergency department service' ? 'Hospital & Emergency' : datum.NHSD_SERVICE_TYPE == 'Nurse led clinic' || datum.NHSD_SERVICE_TYPE == 'Nurse practitioner led clinic' || datum.NHSD_SERVICE_TYPE == 'Walk-in centre' ? 'Nursing & Walk-in Care' : 'Other'",
-    "as": "Service_Group"
+          "as": "Service_Group"
         },
         {
           "filter": "serviceType == 'All' || datum.Service_Group == serviceType"
         }
       ],
-
       "mark": {
         "type": "circle",
         "size": 20,
-        "opacity": 0.35,
+        "opacity": 0.55,
         "stroke": "white",
         "strokeWidth": 0.3
       },
-
       "encoding": {
-        "longitude": {"field": "LONGITUDE", "type": "quantitative"},
-        "latitude": {"field": "LATITUDE", "type": "quantitative"},
-        "color": {"field": "Service_Group", "type": "nominal"},
+        "longitude": {
+          "field": "LONGITUDE",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "LATITUDE",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Service_Group",
+          "type": "nominal",
+          "title": "Service Category",
+          "scale": {
+            "domain": [
+              "Primary Care",
+              "Hospital & Emergency",
+              "Indigenous Health",
+              "Child & Family Health",
+              "Nursing & Walk-in Care",
+              "Other"
+            ],
+            "range": [
+              "#4e79a7",
+              "#e15759",
+              "#f28e2b",
+              "#76b7b2",
+              "#59a14f",
+              "#bab0ac"
+            ]
+          },
+          "legend": {
+            "titleFontSize": 11,
+            "labelFontSize": 10
+          }
+        },
         "tooltip": [
-          {"field": "ORGANISATION_NAME"},
-          {"field": "SUBURB"},
-          {"field": "Service_Group"}
+          {
+            "field": "ORGANISATION_NAME",
+            "title": "Organisation"
+          },
+          {
+            "field": "SUBURB",
+            "title": "Suburb"
+          },
+          {
+            "field": "Service_Group",
+            "title": "Service Type"
+          }
         ]
       }
     }
