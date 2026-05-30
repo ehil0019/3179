@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
+ 
     /* ── PAGE HEADER ── */
     .page-header {
       max-width: var(--max-w);
@@ -57,7 +58,7 @@
       max-width: 600px;
       line-height: 1.65;
     }
-
+ 
     /* ── SECTION ── */
     .section {
       max-width: var(--max-w);
@@ -73,7 +74,7 @@
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
     }
-
+ 
     /* ── SECTION HEADING ── */
     .section-label {
       font-family: var(--font-mono);
@@ -91,7 +92,7 @@
       margin-bottom: 16px;
       color: var(--ink);
     }
-
+ 
     /* ── BODY TEXT ── */
     .intro {
       font-size: 16px;
@@ -118,7 +119,7 @@
       border-left: 2px solid var(--rule);
     }
     .note strong { color: var(--ink); font-weight: 600; }
-
+ 
     /* ── TWO COLUMN ── */
     .row {
       display: grid;
@@ -142,7 +143,7 @@
       margin-bottom: 16px;
     }
     .col-text p strong { color: var(--ink); font-weight: 600; }
-
+ 
     /* ── CHART BLOCK ── */
     .chart-block {
       margin-top: 32px;
@@ -162,6 +163,7 @@
       margin-bottom: 12px;
     }
     .chart-box {
+    }
       background: #fff;
       border: 1px solid var(--rule);
       padding: 24px;
@@ -171,7 +173,7 @@
     .section-shaded-wrap .chart-box {
       background: #fff;
     }
-
+ 
     /* ── LEGEND ── */
     .legend {
       display: flex;
@@ -192,7 +194,7 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-
+ 
     /* ── FOOTER ── */
     footer {
       background: var(--bg-2);
@@ -225,11 +227,11 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-
+ 
     /* ── VEGA ── */
     .vega-embed { width: 100%; }
     .vega-embed details { display: none !important; }
-
+ 
     @media (max-width: 680px) {
       .row, .row-3, .footer-inner { grid-template-columns: 1fr; }
     }
@@ -259,15 +261,15 @@
       <div class="chart-block" style="margin-top:0">
         <div class="chart-label">Population by Remoteness Area</div>
         <div class="chart-source">ABS, 2021 Census • Zoom and map centre controls available</div>
-        <div class="chart-box"><div id="ra-pop-map"></div></div>
+        <div class="chart-box narrow"><div id="ra-pop-map"></div></div>
       </div>
     </div>
   </div>
 
   <div class="chart-block">
     <div class="chart-label">Age and Sex Structure by Remoteness Area</div>
-    <div class="chart-source">ABS, 2021 Census · Percentage of population by age group and sex</div>
-    <div class="chart-box"><div id="age-pyramids"></div></div>
+    <div class="chart-source">ABS, 2021 Census • Percentage of population by age group and sex</div>
+    <div class="chart-box" style="max-width:100%; padding:16px;"><div id="age-pyramids"></div></div>
     <p class="caption">The notably larger 25–34 cohort in Very Remote areas reflects workforce migration and a younger Indigenous population base, not greater wellbeing.</p>
   </div>
 </div>
@@ -294,7 +296,7 @@
   <div class="chart-block" style="margin-top:0">
     <div class="chart-label">Distribution of Health Services Across Australia</div>
     <div class="chart-source">ECAT.GA, 2024 • Each dot represents one registered service • Filter by service type using the dropdown</div>
-    <div class="chart-box"><div id="dotmap"></div></div>
+    <div class="chart-box narrow"><div id="dotmap"></div></div>
   </div>
 
   <div class="row" style="margin-top:40px">
@@ -344,7 +346,7 @@
   <div class="chart-block" style="margin-top:0">
     <div class="chart-label">Hospital Separations per 1,000 People by Remoteness Area, 2013–2024</div>
     <div class="chart-source">AIHW, Australian Hospital Statistics • Hover for values</div>
-    <div class="chart-box"><div id="hospitalisations"></div></div>
+    <div class="chart-box" style="max-width:100%;"><div id="hospitalisations"></div></div>
     <p class="caption">Remote Australians are hospitalised at nearly twice the rate of city-dwellers, year after year.</p>
   </div>
 </div>
