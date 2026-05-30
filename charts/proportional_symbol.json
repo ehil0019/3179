@@ -1,0 +1,139 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map: services per 100,000 people by state",
+  "width": 600,
+  "height": 400,
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/STE_2021.json",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e8e8",
+        "stroke": "white",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/STE_2021.json",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME21",
+          "from": {
+            "data": {
+              "url": "data/bubble_data.csv"
+            },
+            "key": "state_full",
+            "fields": [
+              "services_per_100k",
+              "population_000",
+              "state"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.services_per_100k)"
+        },
+        {
+          "calculate": "geoCentroid(null, datum)",
+          "as": "centroid"
+        },
+        {
+          "calculate": "datum.centroid[0]",
+          "as": "longitude"
+        },
+        {
+          "calculate": "datum.centroid[1]",
+          "as": "latitude"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "services_per_100k",
+          "type": "quantitative",
+          "title": "Services per 100,000",
+          "scale": {
+            "range": [
+              200,
+              3000
+            ]
+          },
+          "legend": {
+            "title": "Services per 100,000",
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "values": [
+              43,
+              52,
+              60,
+              68
+            ]
+          }
+        },
+        "color": {
+          "field": "services_per_100k",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues"
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "services_per_100k",
+            "type": "quantitative",
+            "title": "Services per 100,000",
+            "format": ".1f"
+          },
+          {
+            "field": "population_000",
+            "type": "quantitative",
+            "title": "Population (thousands)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": null,
+    "font": "sans-serif"
+  }
+}
