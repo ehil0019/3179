@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Health Services by State and Service Type",
-  "width": 600,
-  "height": 400,
+  "width": 320,
+  "height": 320,
   "data": {
     "url": "data/location_and_type.csv"
   },
@@ -54,7 +54,7 @@
           "#f28e2b",
           "#76b7b2",
           "#59a14f",
-          "#b07aa1"
+          "#bab0ac"
         ]
       },
       "legend": {
@@ -63,9 +63,18 @@
       }
     },
     "tooltip": [
-      {"field": "STATE", "title": "State"},
-      {"field": "Service_Group", "title": "Service Category"},
-      {"aggregate": "count", "title": "Count"},
+      {
+        "field": "STATE",
+        "title": "State"
+      },
+      {
+        "field": "Service_Group",
+        "title": "Service Category"
+      },
+      {
+        "aggregate": "count",
+        "title": "Count"
+      },
       {
         "aggregate": "count",
         "title": "Share",
