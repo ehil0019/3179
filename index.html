@@ -1,75 +1,454 @@
 <!DOCTYPE html>
-<html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Behind — Health Access in Remote Australia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    :root {
+      --ink:       #1c1c1c;
+      --ink-2:     #444;
+      --ink-3:     #777;
+      --bg:        #ffffff;
+      --bg-2:      #f6f4f0;
+      --rule:      #ddd;
+      --accent:    #2a5fa5;
+      --max-w:     920px;
+      --font-head: 'Lora', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 60px 40px 40px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .page-header h1 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .page-header .subtitle {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--ink-2);
+      font-weight: 300;
+      max-width: 600px;
+      line-height: 1.65;
+    }
 
+    /* ── SECTION ── */
+    .section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 52px 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section.shaded {
+      background: var(--bg-2);
+    }
+    .section-shaded-wrap {
+      background: var(--bg-2);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 10px;
+    }
+    h2.section-title {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    /* ── BODY TEXT ── */
+    .intro {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-2);
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+    .caption {
+      font-size: 13px;
+      color: var(--ink-3);
+      font-family: var(--font-mono);
+      margin-top: 8px;
+      line-height: 1.55;
+      max-width: 680px;
+    }
+    .note {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-top: 16px;
+      padding-left: 14px;
+      border-left: 2px solid var(--rule);
+    }
+    .note strong { color: var(--ink); font-weight: 600; }
+
+    /* ── TWO COLUMN ── */
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .row-3 {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .col-text {
+      padding-top: 4px;
+    }
+    .col-text p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+    }
+    .col-text p strong { color: var(--ink); font-weight: 600; }
+
+    /* ── CHART BLOCK ── */
+    .chart-block {
+      margin-top: 32px;
+    }
+    .chart-label {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .chart-source {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .chart-box {
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 24px;
+      overflow-x: auto;
+    }
+    .section.shaded .chart-box,
+    .section-shaded-wrap .chart-box {
+      background: #fff;
+    }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-bottom: 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-2);
+    }
+    .l-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--rule);
+      padding: 48px 0 40px;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+    }
+    footer h4 {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+    footer p {
+      font-size: 12.5px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── VEGA ── */
+    .vega-embed { width: 100%; }
+    .vega-embed details { display: none !important; }
+
+    @media (max-width: 680px) {
+      .row, .row-3, .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-  <h1>1. Context</h1>
-  <div id="dotmap"></div>
 
-  <script>
-  vegaEmbed('#dotmap', 'charts/health_map.json');
-</script>
-  
-    
-<div id="age-pyramids"></div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Left Behind: Health Access and Outcomes in Remote Australia</h1>
+  <p class="subtitle">This visualisation examines how geographic remoteness shapes the availability of health services and the health outcomes of Australians — from who lives where, to where services are located, to the consequences for hospitalisation and mortality.</p>
+</div>
+
+<!-- ══════════════════════════════
+     SECTION 1 — CONTEXT
+══════════════════════════════ -->
+<div class="section">
+  <p class="section-label">Section 1 — Context</p>
+  <h2 class="section-title">Who lives where, and what does the population look like?</h2>
+
+  <div class="row-3">
+    <div class="col-text">
+      <p>Australia's population is heavily concentrated along the eastern seaboard and in Perth, with the vast interior home to fewer than 700,000 people across Remote and Very Remote categories combined. The choropleth map shows this distribution by remoteness area.</p>
+      <p>Remote populations skew younger — but not because they are healthier. <strong>Very Remote areas have proportionally more children and working-age adults, and far fewer elderly residents</strong>, reflecting shorter life expectancy rather than better health. The age pyramids show this pattern clearly across all five remoteness categories.</p>
+    </div>
+    <div>
+      <div class="chart-block" style="margin-top:0">
+        <div class="chart-label">Population by Remoteness Area</div>
+        <div class="chart-source">ABS, 2021 Census · Zoom and map centre controls available</div>
+        <div class="chart-box"><div id="ra-pop-map"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-block">
+    <div class="chart-label">Age and Sex Structure by Remoteness Area</div>
+    <div class="chart-source">ABS, 2021 Census · Percentage of population by age group and sex</div>
+    <div class="chart-box"><div id="age-pyramids"></div></div>
+    <p class="caption">The notably larger 25–34 cohort in Very Remote areas reflects workforce migration and a younger Indigenous population base, not greater wellbeing.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SECTION 2 — SERVICE DISTRIBUTION
+══════════════════════════════ -->
+<div class="section-shaded-wrap">
+<div class="section shaded">
+  <p class="section-label">Section 2 — Service Distribution</p>
+  <h2 class="section-title">Where are health services located, and how are they distributed?</h2>
+
+  <p class="intro">Health services follow the population rather than the need. The dot map below shows every registered health service in Australia. The coastal concentration is immediate — filter by service type to see how certain categories, particularly Indigenous Health services, appear almost exclusively in remote areas as the only form of care available.</p>
+
+  <div class="legend">
+    <div class="legend-item"><div class="l-dot" style="background:#4e79a7"></div>Primary Care</div>
+    <div class="legend-item"><div class="l-dot" style="background:#e15759"></div>Hospital &amp; Emergency</div>
+    <div class="legend-item"><div class="l-dot" style="background:#f28e2b"></div>Indigenous Health</div>
+    <div class="legend-item"><div class="l-dot" style="background:#76b7b2"></div>Child &amp; Family Health</div>
+    <div class="legend-item"><div class="l-dot" style="background:#59a14f"></div>Nursing &amp; Walk-in Care</div>
+    <div class="legend-item"><div class="l-dot" style="background:#b07aa1"></div>Other</div>
+  </div>
+
+  <div class="chart-block" style="margin-top:0">
+    <div class="chart-label">Distribution of Health Services Across Australia</div>
+    <div class="chart-source">NHSD, 2024 · Each dot represents one registered service · Filter by service type using the dropdown</div>
+    <div class="chart-box"><div id="dotmap"></div></div>
+  </div>
+
+  <div class="row" style="margin-top:40px">
+    <div class="chart-block" style="margin-top:0">
+      <div class="chart-label">Service Mix by State</div>
+      <div class="chart-source">NHSD, 2024 · Share of services by category</div>
+      <div class="chart-box"><div id="services-state"></div></div>
+      <p class="caption">Primary Care dominates in every state. The NT and WA show a higher share of Indigenous Health services, reflecting the communities served.</p>
+    </div>
+    <div class="chart-block" style="margin-top:0">
+      <div class="chart-label">Services per 10,000 People by State</div>
+      <div class="chart-source">NHSD &amp; ABS, 2024 · Per capita service availability</div>
+      <div class="chart-box"><div id="services-dotplot"></div></div>
+      <p class="caption">The NT appears well-served per capita — but a service in Darwin does not serve a community 1,000 km away.</p>
+    </div>
+  </div>
+
+  <div class="legend" style="margin-top:32px; margin-bottom:12px">
+    <div class="legend-item"><div class="l-dot" style="background:#E69F00"></div>NSW</div>
+    <div class="legend-item"><div class="l-dot" style="background:#56B4E9"></div>VIC</div>
+    <div class="legend-item"><div class="l-dot" style="background:#009E73"></div>QLD</div>
+    <div class="legend-item"><div class="l-dot" style="background:#F0E442; border:1px solid #bbb"></div>WA</div>
+    <div class="legend-item"><div class="l-dot" style="background:#0072B2"></div>SA</div>
+    <div class="legend-item"><div class="l-dot" style="background:#D55E00"></div>TAS</div>
+    <div class="legend-item"><div class="l-dot" style="background:#CC79A7"></div>NT</div>
+    <div class="legend-item"><div class="l-dot" style="background:#111"></div>ACT</div>
+  </div>
+
+  <div class="chart-block">
+    <div class="chart-label">Service Availability vs Hospital Separations by State</div>
+    <div class="chart-source">NHSD &amp; AIHW, 2024–25 · Bubble size = population · X-axis starts at 40 · A <em>separation</em> is a completed episode of admitted patient care</div>
+    <div class="chart-box"><div id="bubble-plot"></div></div>
+    <p class="note">The NT has similar service density to other states yet the highest separation rate in the country — suggesting the problem extends beyond simple service counts to geographic access barriers.</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+     SECTION 3 — HOSPITALISATIONS
+══════════════════════════════ -->
+<div class="section">
+  <p class="section-label">Section 3 — Hospitalisation</p>
+  <h2 class="section-title">How does remoteness relate to hospitalisation rates over time?</h2>
+
+  <p class="intro">When primary care is unavailable, manageable conditions escalate until hospital admission becomes unavoidable. The line chart below tracks separation rates per 1,000 people by remoteness area from 2013 to 2024. The gap between Major Cities and Remote areas has persisted — and in some years widened — over the entire period.</p>
+
+  <div class="chart-block" style="margin-top:0">
+    <div class="chart-label">Hospital Separations per 1,000 People by Remoteness Area, 2013–2024</div>
+    <div class="chart-source">AIHW, Australian Hospital Statistics · Hover for values</div>
+    <div class="chart-box"><div id="hospitalisations"></div></div>
+    <p class="caption">Remote Australians are hospitalised at nearly twice the rate of city-dwellers, year after year.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SECTION 4 — MORTALITY
+══════════════════════════════ -->
+<div class="section-shaded-wrap">
+<div class="section shaded">
+  <p class="section-label">Section 4 — Mortality</p>
+  <h2 class="section-title">Which conditions are driving higher death rates in remote areas?</h2>
+
+  <p class="intro">The heatmap shows age-standardised death rates per 100,000 for all conditions appearing in any remoteness area's top 10 causes of death. Grey cells indicate the condition was not a leading cause in that area. Read across each row — for almost every condition, the rate rises with remoteness.</p>
+
+  <div class="chart-block" style="margin-top:0">
+    <div class="chart-label">Leading Causes of Death by Remoteness Area — Age-Standardised Rate per 100,000</div>
+    <div class="chart-source">AIHW, Deaths in Australia, 2025 · Data period: 2021–2023 · Grey = not in top 10 for that area · Hover for values</div>
+    <div class="chart-box"><div id="heatmap"></div></div>
+    <p class="note"><strong>Dementia declines with remoteness</strong> — not because outcomes are better, but because remote populations do not live long enough for it to become a leading cause. Suicide and land transport accidents are absent from Major Cities' top 10, yet prominent in Remote and Very Remote areas.</p>
+  </div>
+
+  <p class="intro" style="margin-top:40px; margin-bottom:28px">The slope chart below traces five conditions with the most revealing trajectories. Diabetes is the most striking: an entirely manageable condition whose death rate rises 3.6 times from Major Cities to Very Remote — directly proportional to the absence of primary care.</p>
+
+  <div class="chart-block" style="margin-top:0">
+    <div class="chart-label">Death Rate Trajectories Across Remoteness — Selected Conditions</div>
+    <div class="chart-source">AIHW, Deaths in Australia, 2025 · Age-standardised rate per 100,000 · Dashed lines = conditions not in Major Cities top 10</div>
+    <div class="chart-box"><div id="slope-chart"></div></div>
+    <p class="caption">Diabetes: 15.4 per 100,000 in Major Cities → 55.1 in Very Remote. With access to a GP, it need not be fatal.</p>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Data Sources</h4>
+      <p><strong>National Health Services Directory (NHSD)</strong>, Australian Government Department of Health and Aged Care, 2024. <a href="https://www.nhsd.com.au" target="_blank">nhsd.com.au</a></p>
+      <p><strong>ABS 2021 Census of Population and Housing</strong>, Australian Bureau of Statistics. <a href="https://www.abs.gov.au/census" target="_blank">abs.gov.au</a></p>
+      <p><strong>ABS Remoteness Structure (ASGS 2021)</strong>, TopoJSON boundaries. <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3" target="_blank">abs.gov.au/asgs</a></p>
+      <p><strong>Australian Hospital Statistics</strong>, AIHW, admitted patient care series, 2013–2024. <a href="https://www.aihw.gov.au" target="_blank">aihw.gov.au</a></p>
+      <p><strong>Deaths in Australia</strong>, AIHW, 2025. Leading causes of death by remoteness area, 2021–2023. <a href="https://www.aihw.gov.au" target="_blank">aihw.gov.au</a></p>
+      <p><strong>National, State and Territory Population</strong>, ABS, September quarter 2024.</p>
+      <p><strong>ECATLAS / eCat</strong>, Geoscience Australia. State and remoteness area boundary data. <a href="https://ecat.ga.gov.au" target="_blank">ecat.ga.gov.au</a></p>
+    </div>
+    <div>
+      <h4>About</h4>
+      <p>Created for <strong>FIT2179 Data Visualisation</strong>, Monash University, Semester 1 2026.</p>
+      <p>Built with <strong>Vega-Lite v5</strong>. Maps use ABS 2021 ASGS TopoJSON boundaries.</p>
+      <p><strong>AI acknowledgement:</strong> Generative AI (Claude, Anthropic) was used for coding assistance and grammar checking. All data analysis, chart design, narrative, and visualisation decisions are the author's own.</p>
+      <p><strong>Colour accessibility:</strong> State colours use the Wong (2011) colourblind-safe palette. Service category colours follow Tableau 10.</p>
+      <h4 style="margin-top:20px">Author</h4>
+      <p>FIT2179 · Monash University · Clayton · 2026</p>
+    </div>
+  </div>
+</footer>
 
 <script>
-  vegaEmbed('#age-pyramids', 'charts/population_pyramids.json');
+  const vc = {
+    config: {
+      font: "'Source Sans 3', system-ui, sans-serif",
+      title: {
+        font: "'Lora', Georgia, serif",
+        fontSize: 13,
+        fontWeight: 700,
+        color: "#1c1c1c",
+        anchor: "start",
+        offset: 12
+      },
+      axis: {
+        labelFont: "'DM Mono', monospace",
+        labelFontSize: 10,
+        labelColor: "#777",
+        titleFont: "'Source Sans 3', system-ui, sans-serif",
+        titleFontSize: 11,
+        titleFontWeight: 400,
+        titleColor: "#444",
+        gridColor: "#e8e4de",
+        domainColor: "#ddd",
+        tickColor: "#ddd"
+      },
+      legend: {
+        labelFont: "'DM Mono', monospace",
+        labelFontSize: 10,
+        labelColor: "#555",
+        titleFont: "'Source Sans 3', system-ui, sans-serif",
+        titleFontSize: 11,
+        titleFontWeight: 600,
+        titleColor: "#1c1c1c"
+      },
+      view: { stroke: null },
+      background: "white"
+    }
+  };
+
+  vegaEmbed('#ra-pop-map',       'charts/choropleth_map_RA.json',           vc);
+  vegaEmbed('#age-pyramids',     'charts/population_pyramids.json',         vc);
+  vegaEmbed('#dotmap',           'charts/health_map.json',                  vc);
+  vegaEmbed('#services-state',   'charts/services_by_state.json',           vc);
+  vegaEmbed('#services-dotplot', 'charts/services_per_capita_dotplot.json', vc);
+  vegaEmbed('#bubble-plot',      'charts/bubble_plot.json',                 vc);
+  vegaEmbed('#hospitalisations', 'charts/Hospitalisations_by_RA.json',      vc);
+  vegaEmbed('#heatmap',          'charts/heatmap.json',                     vc);
+  vegaEmbed('#slope-chart',      'charts/slope_chart.json',                 vc);
 </script>
-
-  <div id="services-dotplot"></div>
-
-<script>
-  vegaEmbed('#services-dotplot', 'charts/services_per_capita_dotplot.json');
-</script>
-
-  <h2>Distribution of Health Services in Australia</h2>
-  <div id="ra-pop-map"></div>
-
-<script>
-  vegaEmbed('#ra-pop-map', 'charts/choropleth_map_RA.json');
-</script>
-  
-
-  <h3>Hospitalisations per 1,000 People (2013–2024)</h3>
-  <div id="hospitalisations"></div>
-
-<script>
-  vegaEmbed('#hospitalisations', 'charts/Hospitalisations_by_RA.json');
-</script>
-
-<h2>Services by State</h2>
-<div id="services-state"></div>
-
-<script>
-  vegaEmbed('#services-state', 'charts/services_by_state.json');
-</script>
-
-<div id="bubble-plot"></div>
-
-  <script>
-  vegaEmbed('#bubble-plot', 'charts/bubble_plot.json');
-</script>
-
-<div id="heatmap"></div>div>
-
-  <script>
-    vegaEmbed('#heatmap', 'charts/heatmap.json');
-  </script>
-
-<div id="slope-chart"></div>
-
-  <script>
-    vegaEmbed('#slope-chart', 'charts/slope_chart.json');
-  </script>
-
-  
 </body>
 </html>
