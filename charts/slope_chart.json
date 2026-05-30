@@ -21,13 +21,7 @@
           "field": "remoteness_area",
           "type": "ordinal",
           "title": null,
-          "sort": [
-            "Major Cities",
-            "Inner Regional",
-            "Outer Regional",
-            "Remote",
-            "Very Remote"
-          ],
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
           "axis": {
             "labelFontSize": 11,
             "labelAngle": -20,
@@ -52,20 +46,8 @@
           "type": "nominal",
           "title": "Condition",
           "scale": {
-            "domain": [
-              "Coronary heart disease",
-              "Dementia",
-              "Diabetes",
-              "Suicide",
-              "Accidental falls"
-            ],
-            "range": [
-              "#e15759",
-              "#76b7b2",
-              "#f28e2b",
-              "#4e79a7",
-              "#bab0ac"
-            ]
+            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
+            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
           },
           "legend": {
             "titleFontSize": 11,
@@ -76,20 +58,8 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": [
-              "Coronary heart disease",
-              "Dementia",
-              "Diabetes",
-              "Suicide",
-              "Accidental falls"
-            ],
-            "range": [
-              [1, 0],
-              [1, 0],
-              [1, 0],
-              [4, 2],
-              [2, 2]
-            ]
+            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
+            "range": [[1, 0], [1, 0], [1, 0], [4, 2], [2, 2]]
           },
           "legend": null
         },
@@ -110,13 +80,7 @@
         "x": {
           "field": "remoteness_area",
           "type": "ordinal",
-          "sort": [
-            "Major Cities",
-            "Inner Regional",
-            "Outer Regional",
-            "Remote",
-            "Very Remote"
-          ]
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
         },
         "y": {
           "field": "age_std_rate",
@@ -126,20 +90,8 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": [
-              "Coronary heart disease",
-              "Dementia",
-              "Diabetes",
-              "Suicide",
-              "Accidental falls"
-            ],
-            "range": [
-              "#e15759",
-              "#76b7b2",
-              "#f28e2b",
-              "#4e79a7",
-              "#bab0ac"
-            ]
+            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
+            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
           },
           "legend": null
         },
@@ -165,13 +117,7 @@
         "x": {
           "field": "remoteness_area",
           "type": "ordinal",
-          "sort": [
-            "Major Cities",
-            "Inner Regional",
-            "Outer Regional",
-            "Remote",
-            "Very Remote"
-          ]
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
         },
         "y": {
           "field": "age_std_rate",
@@ -185,20 +131,8 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": [
-              "Coronary heart disease",
-              "Dementia",
-              "Diabetes",
-              "Suicide",
-              "Accidental falls"
-            ],
-            "range": [
-              "#e15759",
-              "#76b7b2",
-              "#f28e2b",
-              "#4e79a7",
-              "#bab0ac"
-            ]
+            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
+            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
           },
           "legend": null
         }
