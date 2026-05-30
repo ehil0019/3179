@@ -19,7 +19,6 @@ Major cities,Male,75-84,4.8
 Major cities,Female,75-84,5.5
 Major cities,Male,85+,1.6
 Major cities,Female,85+,2.4
-
 Inner regional,Male,0-4,5.6
 Inner regional,Female,0-4,5.2
 Inner regional,Male,5-14,12.8
@@ -40,7 +39,6 @@ Inner regional,Male,75-84,7.4
 Inner regional,Female,75-84,7.7
 Inner regional,Male,85+,2.1
 Inner regional,Female,85+,3.0
-
 Outer regional,Male,0-4,5.6
 Outer regional,Female,0-4,5.4
 Outer regional,Male,5-14,12.6
@@ -61,7 +59,6 @@ Outer regional,Male,75-84,6.7
 Outer regional,Female,75-84,6.8
 Outer regional,Male,85+,1.8
 Outer regional,Female,85+,2.5
-
 Remote,Male,0-4,6.6
 Remote,Female,0-4,6.7
 Remote,Male,5-14,13.5
@@ -82,7 +79,6 @@ Remote,Male,75-84,4.6
 Remote,Female,75-84,4.5
 Remote,Male,85+,1.2
 Remote,Female,85+,1.6
-
 Very remote,Male,0-4,6.6
 Very remote,Female,0-4,6.9
 Very remote,Male,5-14,14.1
