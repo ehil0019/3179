@@ -1,10 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "title": "Population by Remoteness Area (RA)",
   "width": 900,
   "height": 700,
-
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 900,
+      "bind": {
+        "input": "range",
+        "min": 500,
+        "max": 5000,
+        "step": 100,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [134, -28],
+      "bind": {
+        "input": "select",
+        "options": [
+          [134, -28],
+          [151.2, -33.9],
+          [144.9, -37.8],
+          [153.0, -27.5],
+          [115.9, -31.9],
+          [130.8, -12.5]
+        ],
+        "labels": [
+          "All Australia",
+          "Sydney",
+          "Melbourne",
+          "Brisbane",
+          "Perth",
+          "Darwin"
+        ],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": {"expr": "center_to"},
+    "scale": {"expr": "zoom_level"}
+  },
   "data": {
     "url": "data/ra_2021.json",
     "format": {
@@ -12,7 +52,6 @@
       "feature": "RA_2021"
     }
   },
-
   "transform": [
     {
       "lookup": "properties.RA_NAME21",
@@ -23,29 +62,25 @@
       }
     }
   ],
-
   "mark": {
     "type": "geoshape",
     "stroke": "white",
     "strokeWidth": 0.5
   },
-
   "encoding": {
     "color": {
       "field": "Population",
       "type": "quantitative",
       "scale": {
         "type": "threshold",
-            "domain": [300000, 2000000, 5000000, 10000000, 20000000],
-            "range": ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]
-          },
+        "domain": [300000, 2000000, 5000000, 10000000, 20000000],
+        "range": ["#e5f5e0", "#c7e9c0", "#a1d99b", "#74c476", "#31a354", "#006d2c"]
+      },
       "title": "Population"
     },
     "tooltip": [
       {"field": "properties.RA_NAME21", "title": "Remoteness Area"},
-      {"field": "Population", "title": "Population"}
+      {"field": "Population", "title": "Population", "format": ","}
     ]
-  },
-
-  "projection": {"type": "mercator"}
+  }
 }
