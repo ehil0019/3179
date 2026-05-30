@@ -1,0 +1,26 @@
+remoteness_area,condition,age_std_rate,ra_order
+Major Cities,Diabetes,15.4,1
+Inner Regional,Diabetes,17.1,2
+Outer Regional,Diabetes,19.6,3
+Remote,Diabetes,27.8,4
+Very Remote,Diabetes,55.1,5
+Major Cities,Coronary heart disease,46.7,1
+Inner Regional,Coronary heart disease,52.8,2
+Outer Regional,Coronary heart disease,59.2,3
+Remote,Coronary heart disease,69.7,4
+Very Remote,Coronary heart disease,96.4,5
+Major Cities,Suicide,0,1
+Inner Regional,Suicide,0,2
+Outer Regional,Suicide,0,3
+Remote,Suicide,21.3,4
+Very Remote,Suicide,24.5,5
+Major Cities,Dementia,45.5,1
+Inner Regional,Dementia,41.4,2
+Outer Regional,Dementia,39.0,3
+Remote,Dementia,34.9,4
+Very Remote,Dementia,45.6,5
+Major Cities,Accidental falls,10.9,1
+Inner Regional,Accidental falls,0,2
+Outer Regional,Accidental falls,0,3
+Remote,Accidental falls,0,4
+Very Remote,Accidental falls,0,5
