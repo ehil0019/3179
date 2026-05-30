@@ -1,3 +1,4 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Heatmap of age-standardised death rates per 100,000 by cause of death and remoteness area, 2021-2023",
@@ -59,7 +60,7 @@
       "encoding": {
         "color": {
           "condition": {
-            "test": "!isValid(datum.age_std_rate)",
+            "test": "!isValid(datum.age_std_rate) || datum.age_std_rate === 0",
             "value": "#e0e0e0"
           },
           "field": "age_std_rate",
@@ -76,9 +77,22 @@
           }
         },
         "tooltip": [
-          {"field": "remoteness_area", "type": "nominal", "title": "Remoteness Area"},
-          {"field": "condition", "type": "nominal", "title": "Condition"},
-          {"field": "age_std_rate", "type": "quantitative", "title": "Deaths per 100,000", "format": ".1f"}
+          {
+            "field": "remoteness_area",
+            "type": "nominal",
+            "title": "Remoteness Area"
+          },
+          {
+            "field": "condition",
+            "type": "nominal",
+            "title": "Condition"
+          },
+          {
+            "field": "age_std_rate",
+            "type": "quantitative",
+            "title": "Deaths per 100,000",
+            "format": ".1f"
+          }
         ]
       }
     },
@@ -88,7 +102,9 @@
         "fontSize": 10
       },
       "transform": [
-        {"filter": "isValid(datum.age_std_rate)"}
+        {
+          "filter": "isValid(datum.age_std_rate) && datum.age_std_rate !== 0"
+        }
       ],
       "encoding": {
         "text": {
@@ -104,10 +120,30 @@
           "value": "#333333"
         }
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontStyle": "italic",
+        "color": "#999999"
+      },
+      "transform": [
+        {
+          "filter": "!isValid(datum.age_std_rate) || datum.age_std_rate === 0"
+        }
+      ],
+      "encoding": {
+        "text": {
+          "value": "N/A"
+        }
+      }
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "background": null,
     "font": "sans-serif"
   }
