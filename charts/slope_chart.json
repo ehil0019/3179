@@ -55,7 +55,7 @@
           "title": "Condition",
           "scale": {
             "domain": [
-              "Coronary heart disease",
+              "CHD",
               "Dementia",
               "Diabetes",
               "Suicide",
