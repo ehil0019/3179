@@ -33,7 +33,7 @@
     ]
   },
   "spec": {
-    "width": 160,
+    "width": 120,
     "height": 180,
     "mark": "bar",
     "encoding": {
