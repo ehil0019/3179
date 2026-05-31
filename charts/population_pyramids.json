@@ -34,7 +34,7 @@
   },
   "spec": {
     "width": 120,
-    "height": 180,
+    "height": 160,
     "mark": "bar",
     "encoding": {
       "y": {
