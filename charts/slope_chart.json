@@ -1,13 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Slope chart: age-standardised death rates by condition across remoteness areas",
-  "width": 500,
-  "height": 400,
+  "width": 380,
+  "height": 320,
   "data": {
     "url": "data/slope_chart_data.csv"
   },
   "transform": [
-    {"filter": "datum.age_std_rate > 0"}
+    {
+      "filter": "datum.age_std_rate > 0"
+    }
   ],
   "layer": [
     {
@@ -21,7 +23,13 @@
           "field": "remoteness_area",
           "type": "ordinal",
           "title": null,
-          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
+          "sort": [
+            "Major Cities",
+            "Inner Regional",
+            "Outer Regional",
+            "Remote",
+            "Very Remote"
+          ],
           "axis": {
             "labelFontSize": 11,
             "labelAngle": -20,
@@ -46,8 +54,20 @@
           "type": "nominal",
           "title": "Condition",
           "scale": {
-            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
-            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
+            "domain": [
+              "Coronary heart disease",
+              "Dementia",
+              "Diabetes",
+              "Suicide",
+              "Accidental falls"
+            ],
+            "range": [
+              "#c0392b",
+              "#8e44ad",
+              "#e67e22",
+              "#2980b9",
+              "#27ae60"
+            ]
           },
           "legend": {
             "titleFontSize": 11,
@@ -58,15 +78,55 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
-            "range": [[1, 0], [1, 0], [1, 0], [4, 2], [2, 2]]
+            "domain": [
+              "Coronary heart disease",
+              "Dementia",
+              "Diabetes",
+              "Suicide",
+              "Accidental falls"
+            ],
+            "range": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ]
           },
           "legend": null
         },
         "tooltip": [
-          {"field": "condition", "type": "nominal", "title": "Condition"},
-          {"field": "remoteness_area", "type": "nominal", "title": "Remoteness Area"},
-          {"field": "age_std_rate", "type": "quantitative", "title": "Deaths per 100,000", "format": ".1f"}
+          {
+            "field": "condition",
+            "type": "nominal",
+            "title": "Condition"
+          },
+          {
+            "field": "remoteness_area",
+            "type": "nominal",
+            "title": "Remoteness Area"
+          },
+          {
+            "field": "age_std_rate",
+            "type": "quantitative",
+            "title": "Deaths per 100,000",
+            "format": ".1f"
+          }
         ]
       }
     },
@@ -80,7 +140,13 @@
         "x": {
           "field": "remoteness_area",
           "type": "ordinal",
-          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
+          "sort": [
+            "Major Cities",
+            "Inner Regional",
+            "Outer Regional",
+            "Remote",
+            "Very Remote"
+          ]
         },
         "y": {
           "field": "age_std_rate",
@@ -90,21 +156,48 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
-            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
+            "domain": [
+              "Coronary heart disease",
+              "Dementia",
+              "Diabetes",
+              "Suicide",
+              "Accidental falls"
+            ],
+            "range": [
+              "#c0392b",
+              "#8e44ad",
+              "#e67e22",
+              "#2980b9",
+              "#27ae60"
+            ]
           },
           "legend": null
         },
         "tooltip": [
-          {"field": "condition", "type": "nominal", "title": "Condition"},
-          {"field": "remoteness_area", "type": "nominal", "title": "Remoteness Area"},
-          {"field": "age_std_rate", "type": "quantitative", "title": "Deaths per 100,000", "format": ".1f"}
+          {
+            "field": "condition",
+            "type": "nominal",
+            "title": "Condition"
+          },
+          {
+            "field": "remoteness_area",
+            "type": "nominal",
+            "title": "Remoteness Area"
+          },
+          {
+            "field": "age_std_rate",
+            "type": "quantitative",
+            "title": "Deaths per 100,000",
+            "format": ".1f"
+          }
         ]
       }
     },
     {
       "transform": [
-        {"filter": "datum.remoteness_area === 'Very Remote'"}
+        {
+          "filter": "datum.remoteness_area === 'Very Remote'"
+        }
       ],
       "mark": {
         "type": "text",
@@ -117,7 +210,13 @@
         "x": {
           "field": "remoteness_area",
           "type": "ordinal",
-          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
+          "sort": [
+            "Major Cities",
+            "Inner Regional",
+            "Outer Regional",
+            "Remote",
+            "Very Remote"
+          ]
         },
         "y": {
           "field": "age_std_rate",
@@ -131,8 +230,20 @@
           "field": "condition",
           "type": "nominal",
           "scale": {
-            "domain": ["Coronary heart disease", "Dementia", "Diabetes", "Suicide", "Accidental falls"],
-            "range": ["#c0392b", "#8e44ad", "#e67e22", "#2980b9", "#27ae60"]
+            "domain": [
+              "Coronary heart disease",
+              "Dementia",
+              "Diabetes",
+              "Suicide",
+              "Accidental falls"
+            ],
+            "range": [
+              "#c0392b",
+              "#8e44ad",
+              "#e67e22",
+              "#2980b9",
+              "#27ae60"
+            ]
           },
           "legend": null
         }
@@ -140,7 +251,9 @@
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "background": null,
     "font": "sans-serif"
   }
