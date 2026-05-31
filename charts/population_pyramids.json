@@ -55,7 +55,7 @@
         "type": "nominal",
         "scale": {
           "domain": ["Male", "Female"],
-          "range": ["#4C6EF5", "#F06595"]
+          "range": ["#2d6a9f","#c05c2e"]
         },
         "title": "Sex"
       },
