@@ -276,8 +276,8 @@
   <div class="chart-block no-top">
     <div class="chart-label">Age and Sex Structure by Remoteness Area</div>
     <div class="chart-source">ABS, 2021 Census • Percentage of population by age group and sex</div>
-    <div class="chart-box" style="padding: 16px; overflow-x: visible;"><div id="age-pyramids"></div></div>
-    <p><strong>Remote populations skew younger,</strong> but not because they are healthier. Very Remote areas have proportionally more children and working-age adults, and far fewer elderly residents, reflecting shorter life expectancy. The age pyramids above show this pattern across all five remoteness categories.</p>
+    <div class="chart-box" style="padding: 16px; overflow-x: auto; max-width:100%;"><div id="age-pyramids"></div></div>
+    <p style="margin-top:20px;"><strong>Remote populations skew younger,</strong> but not because they are healthier. Very Remote areas have proportionally more children and working-age adults, and far fewer elderly residents, reflecting shorter life expectancy. The age pyramids above show this pattern across all five remoteness categories.</p>
     <p>The larger 25–34 cohort in Very Remote areas reflects workforce migration and a younger Indigenous population base, not greater wellbeing.</p>
   </div>
 </div>
@@ -302,7 +302,7 @@
   <div class="chart-block no-top">
     <div class="chart-label">Distribution of Health Services Across Australia</div>
     <div class="chart-source">NHSD, 2024 • Each dot represents one registered service • Filter by service type using the dropdown</div>
-    <div class="chart-box"><div id="dotmap"></div></div>
+    <div class="chart-box" style="width:100%; overflow-x:auto;"><div id="dotmap"></div></div>
   </div>
  
   <div class="row-2">
@@ -334,7 +334,7 @@
   <div class="chart-block no-top">
     <div class="chart-label">Service Availability vs Hospital Separations by State</div>
     <div class="chart-source">NHSD &amp; AIHW, 2024–25 • Bubble size = population • A <em>separation</em> is a completed episode of admitted patient care</div>
-    <div class="chart-box"><div id="bubble-plot"></div></div>
+    <div class="chart-box" style="display:inline-block; width:auto; max-width:100%;"><div id="bubble-plot"></div></div>
     <p class="note">The NT has similar service density to other states yet the highest hospitalisation rate in the country, suggesting the problem extends beyond simple service counts to geographic access barriers.</p>
   </div>
 </div>
@@ -373,15 +373,14 @@
     <div class="chart-block no-top">
       <div class="chart-label">Death Rate Trajectories — Selected Conditions</div>
       <div class="chart-source">AIHW, Deaths in Australia, 2025 • Age-standardised rate per 100,000 • Dashed lines = absent from Major Cities top 10</div>
-      <div class="chart-box"><div id="slope-chart"></div></div>
+      <div class="chart-box" style="display:inline-block; width:auto; max-width:100%;"><div id="slope-chart"></div></div>
       <p class="note" style="margin-top:12px">Diabetes rises from 15.4 per 100,000 in Major Cities to 55.1 in Very Remote. With access to a GP, it does not need to be fatal.</p>
     </div>
   </div>
   
-  <p class="intro">Georgraphic remoteness remains one of the most persistent and measurable determinants of health inequality in Australia. Across every indicator examined, the data consistently shows that distance from care translates into worse outcomes. Addressing the gap requires not just counting services, but ensuring they are accessible to the communities that need them most.</p>
+  <p class="intro" style="margin-top:40px;">Geographic remoteness remains one of the most persistent and measurable determinants of health inequality in Australia. Across every indicator examined, the data consistently shows that distance from care translates into worse outcomes. Addressing the gap requires not just counting services, but ensuring they are accessible to the communities that need them most.</p>
 </div>
 </div>
-
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-inner">
@@ -405,7 +404,6 @@
     </div>
   </div>
 </footer>
-
 <script>
   const vc = {
     config: {
@@ -443,7 +441,6 @@
       background: "white"
     }
   };
-
   vegaEmbed('#ra-pop-map',       'charts/choropleth_map_RA.json',           vc);
   vegaEmbed('#age-pyramids',     'charts/population_pyramids.json',         vc);
   vegaEmbed('#dotmap',           'charts/health_map.json',                  vc);
