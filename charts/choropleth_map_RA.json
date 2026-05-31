@@ -5,7 +5,7 @@
   "params": [
     {
       "name": "zoom_level",
-      "value": 700,
+      "value": 500,
       "bind": {
         "input": "range",
         "min": 500,
