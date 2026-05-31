@@ -34,7 +34,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
+ 
     /* ── PAGE HEADER ── */
     .page-header {
       max-width: var(--max-w);
@@ -57,7 +57,7 @@
       max-width: 640px;
       line-height: 1.65;
     }
-
+ 
     /* ── SECTIONS ── */
     .section {
       max-width: var(--max-w);
@@ -71,7 +71,7 @@
       border-bottom: 1px solid var(--rule);
     }
     .section.shaded { background: var(--bg-2); }
-
+ 
     /* ── SECTION HEADING ── */
     .section-label {
       font-family: var(--font-mono);
@@ -89,7 +89,7 @@
       margin-bottom: 18px;
       color: var(--ink);
     }
-
+ 
     /* ── TEXT ── */
     .intro {
       font-size: 15px;
@@ -116,12 +116,12 @@
       border-left: 2px solid var(--rule);
     }
     .note strong { color: var(--ink); font-weight: 600; }
-
+ 
     /* ── TWO COLUMN LAYOUTS ── */
     /* Choropleth: text left (narrower), map right (wider) */
     .row-choro {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 36px;
       align-items: start;
       margin-bottom: 40px;
@@ -136,7 +136,7 @@
       margin-bottom: 14px;
     }
     .col-text p strong { color: var(--ink); font-weight: 600; }
-
+ 
     /* Equal two-col for charts */
     .row-2 {
       display: grid;
@@ -146,6 +146,7 @@
       align-items: start;
     }
     /* Heatmap+slope side by side */
+    #age-pyramids { min-width: 700px; }
     .row-mortality {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -153,7 +154,7 @@
       margin-top: 0;
       align-items: start;
     }
-
+ 
     /* ── CHART BLOCK ── */
     .chart-block { margin-top: 28px; }
     .chart-block.no-top { margin-top: 0; }
@@ -179,7 +180,7 @@
     }
     /* No extra left padding for heatmap */
     .chart-box.no-left-pad { padding-left: 8px; padding-right: 8px; }
-
+ 
     /* ── LEGEND ── */
     .legend {
       display: flex;
@@ -200,7 +201,7 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-
+ 
     /* ── FOOTER ── */
     footer {
       background: var(--bg-2);
@@ -233,11 +234,11 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-
+ 
     /* ── VEGA ── */
     .vega-embed { width: 100%; }
     .vega-embed details { display: none !important; }
-
+ 
     @media (max-width: 700px) {
       .row-choro, .row-2, .row-mortality, .footer-inner { grid-template-columns: 1fr; }
       .section, .page-header { padding-left: 20px; padding-right: 20px; }
@@ -245,21 +246,21 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- ══ PAGE HEADER ══ -->
 <div class="page-header">
   <h1>Left Behind: Health Access and Outcomes in Remote Australia</h1>
-  <p class="subtitle">This data visualisation examines how geographic remoteness shapes the availability of health services and the health outcomes of Australians - from who lives where, to where services are located, to the consequences for hospitalisation and mortality.</p>
+  <p class="subtitle">This visualisation examines how geographic remoteness shapes the availability of health services and the health outcomes of Australians — from who lives where, to where services are located, to the consequences for hospitalisation and mortality.</p>
 </div>
-
+ 
 <!-- ══ SECTION 1 — CONTEXT ══ -->
 <div class="section">
   <p class="section-label">Section 1 — Context</p>
   <h2 class="section-title">Who lives where, and what does the population look like?</h2>
-
+ 
   <div class="row-choro">
     <div class="col-text">
-      <p>Australia's population is heavily concentrated along the eastern seaboard and in Perth, with the vast central areas home to fewer than 700,000 people across Remote and Very Remote categories combined.</p>
+      <p>Australia's population is heavily concentrated along the eastern seaboard and in Perth, with the vast interior home to fewer than 700,000 people across Remote and Very Remote categories combined.</p>
       <p><strong>Remote populations skew younger,</strong> but not because they are healthier. Very Remote areas have proportionally more children and working-age adults, and far fewer elderly residents, reflecting shorter life expectancy. The age pyramids below show this pattern across all five remoteness categories.</p>
     </div>
     <div>
@@ -270,23 +271,23 @@
       </div>
     </div>
   </div>
-
+ 
   <div class="chart-block no-top">
     <div class="chart-label">Age and Sex Structure by Remoteness Area</div>
     <div class="chart-source">ABS, 2021 Census • Percentage of population by age group and sex</div>
-    <div class="chart-box" style="padding: 16px;"><div id="age-pyramids"></div></div>
+    <div class="chart-box" style="padding: 16px; overflow-x: visible;"><div id="age-pyramids"></div></div>
     <p class="caption">The larger 25–34 cohort in Very Remote areas reflects workforce migration and a younger Indigenous population base, not greater wellbeing.</p>
   </div>
 </div>
-
+ 
 <!-- ══ SECTION 2 — SERVICE DISTRIBUTION ══ -->
 <div class="section-shaded-wrap">
 <div class="section shaded">
   <p class="section-label">Section 2 — Service Distribution</p>
   <h2 class="section-title">Where are health services located, and how are they distributed?</h2>
-
-  <p class="intro">Health services follow the population rather than the need. The dot map below shows every registered National HealthDirect Health Facility in Australia. Filter by service type to see how Indigenous Health services appear almost exclusively in remote areas as one of the main forms of care available.</p>
-
+ 
+  <p class="intro">Health services follow the population rather than the need. The dot map below shows every registered National HealthDirect Health Facility in Australia. Filter by service type to see how Indigenous Health services appear mostly in remote areas as the main form of care available.</p>
+ 
   <div class="legend">
     <div class="legend-item"><div class="l-dot" style="background:#4e79a7"></div>Primary Care</div>
     <div class="legend-item"><div class="l-dot" style="background:#e15759"></div>Hospital &amp; Emergency</div>
@@ -295,13 +296,13 @@
     <div class="legend-item"><div class="l-dot" style="background:#59a14f"></div>Nursing &amp; Walk-in Care</div>
     <div class="legend-item"><div class="l-dot" style="background:#b07aa1"></div>Other</div>
   </div>
-
+ 
   <div class="chart-block no-top">
     <div class="chart-label">Distribution of Health Services Across Australia</div>
     <div class="chart-source">NHSD, 2024 • Each dot represents one registered service • Filter by service type using the dropdown</div>
-    <div class="chart-box" style="max-width: 780px;"><div id="dotmap"></div></div>
+    <div class="chart-box"><div id="dotmap"></div></div>
   </div>
-
+ 
   <div class="row-2">
     <div class="chart-block no-top">
       <div class="chart-label">Service Mix by State</div>
@@ -316,7 +317,7 @@
       <p class="caption">The NT appears well-served per capita, but a service in Darwin does not help a community 1,000 km away.</p>
     </div>
   </div>
-
+ 
   <div class="legend" style="margin-top: 28px; margin-bottom: 10px;">
     <div class="legend-item"><div class="l-dot" style="background:#E69F00"></div>NSW</div>
     <div class="legend-item"><div class="l-dot" style="background:#56B4E9"></div>VIC</div>
@@ -327,45 +328,45 @@
     <div class="legend-item"><div class="l-dot" style="background:#CC79A7"></div>NT</div>
     <div class="legend-item"><div class="l-dot" style="background:#111"></div>ACT</div>
   </div>
-
+ 
   <div class="chart-block no-top">
     <div class="chart-label">Service Availability vs Hospital Separations by State</div>
-    <div class="chart-source">AIHW, 2024–25 • Bubble size = population • A <em>separation</em> is a completed episode of admitted patient care</div>
+    <div class="chart-source">NHSD &amp; AIHW, 2024–25 • Bubble size = population • A <em>separation</em> is a completed episode of admitted patient care</div>
     <div class="chart-box"><div id="bubble-plot"></div></div>
     <p class="note">The NT has similar service density to other states yet the highest hospitalisation rate in the country, suggesting the problem extends beyond simple service counts to geographic access barriers.</p>
   </div>
 </div>
 </div>
-
+ 
 <!-- ══ SECTION 3 — HOSPITALISATION ══ -->
 <div class="section">
   <p class="section-label">Section 3 — Hospitalisation</p>
   <h2 class="section-title">How does remoteness relate to hospitalisation rates over time?</h2>
-
+ 
   <p class="intro">When primary care is unavailable, manageable conditions escalate until hospital admission becomes unavoidable. The chart below tracks hospital separation rates per 1,000 people by remoteness area from 2013 to 2024. The gap between Major Cities and Remote areas has persisted, and in some years widened, over the entire period.</p>
-
+ 
   <div class="chart-block no-top">
     <div class="chart-label">Hospital Separations per 1,000 People by Remoteness Area, 2013–2024</div>
-    <div class="chart-source">AIHW, Australian Hospital Statistics • Hover for values</div>
-    <div class="chart-box" style="max-width: 100%;"><div id="hospitalisations"></div></div>
-    <p class="caption">Very Remote Australians are hospitalised at nearly twice the rate of city-dwellers, year after year.</p>
+    <div class="chart-source">AIHW, Australian Hospital Statistics · Hover for values</div>
+    <div class="chart-box"><div id="hospitalisations"></div></div>
+    <p class="caption">Very remote Australians are hospitalised at nearly twice the rate of city-dwellers, year after year.</p>
   </div>
 </div>
-
+ 
 <!-- ══ SECTION 4 — MORTALITY ══ -->
 <div class="section-shaded-wrap">
 <div class="section shaded">
-  <p class="section-label">Section 4 - Mortality</p>
+  <p class="section-label">Section 4 — Mortality</p>
   <h2 class="section-title">Which conditions are driving higher death rates in remote areas?</h2>
-
+ 
   <p class="intro">The heatmap shows age-standardised death rates per 100,000 for all conditions appearing in any remoteness area's top 10 causes of death. Grey cells indicate the condition was not a leading cause in that area. For almost every condition, rates rise with remoteness. The slope chart isolates five conditions with the most revealing trajectories.</p>
-
+ 
   <div class="row-mortality">
     <div class="chart-block no-top">
       <div class="chart-label">Leading Causes of Death by Remoteness Area</div>
-      <div class="chart-source">AIHW, Deaths in Australia, 2025 • 2021–2023 • Age-standardised rate per 100,000 · Grey = not in top 10 · Hover for values</div>
+      <div class="chart-source">AIHW, Deaths in Australia, 2025 • 2021–2023 • Age-standardised rate per 100,000 • Grey = not in top 10 </div>
       <div class="chart-box no-left-pad"><div id="heatmap"></div></div>
-      <p class="note" style="margin-top:12px"><strong>Dementia declines with remoteness</strong> • remote populations do not live long enough for it to become a leading cause. Suicide and land transport accidents are absent from Major Cities' top 10, yet prominent in Remote and Very Remote areas.</p>
+      <p class="note" style="margin-top:12px"><strong>Dementia declines with remoteness</strong> as remote populations do not live long enough for it to become a leading cause. Suicide and land transport accidents are absent from Major Cities' top 10, yet prominent in Remote and Very Remote areas.</p>
     </div>
     <div class="chart-block no-top">
       <div class="chart-label">Death Rate Trajectories — Selected Conditions</div>
