@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Heatmap of age-standardised death rates per 100,000 by cause of death and remoteness area, 2021-2023",
-  "width": 300,
-  "height": 240,
+  "width": 260,
+  "height": 210,
   "data": {
     "url": "data/heatmap_data.csv"
   },
