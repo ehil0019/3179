@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Population by Remoteness Area (RA)",
   "width": 550,
   "height": 350,
   "params": [
