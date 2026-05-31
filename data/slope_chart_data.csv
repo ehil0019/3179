@@ -4,11 +4,11 @@ Inner Regional,Diabetes,17.1,2
 Outer Regional,Diabetes,19.6,3
 Remote,Diabetes,27.8,4
 Very Remote,Diabetes,55.1,5
-Major Cities,Coronary heart disease,46.7,1
-Inner Regional,Coronary heart disease,52.8,2
-Outer Regional,Coronary heart disease,59.2,3
-Remote,Coronary heart disease,69.7,4
-Very Remote,Coronary heart disease,96.4,5
+Major Cities,CHD,46.7,1
+Inner Regional,CHD,52.8,2
+Outer Regional,CHD,59.2,3
+Remote,CHD,69.7,4
+Very Remote,CHD,96.4,5
 Major Cities,Suicide,0,1
 Inner Regional,Suicide,0,2
 Outer Regional,Suicide,0,3
