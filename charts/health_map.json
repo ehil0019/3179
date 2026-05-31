@@ -1,9 +1,7 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Distribution of Health Services Across Australia",
-  "width": 700,
-  "height": 500,
+  "width": 900,
+  "height": 700,
   "projection": {
     "type": "mercator"
   },
@@ -37,9 +35,9 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#d4d4d4",
+        "fill": "#ebebeb",
         "opacity": 1,
-        "stroke": "#aaaaaa",
+        "stroke": "#cccccc",
         "strokeWidth": 0.8
       }
     },
@@ -91,7 +89,7 @@
               "#f28e2b",
               "#76b7b2",
               "#59a14f",
-              "#b07aa1"
+              "#bab0ac"
             ]
           },
           "legend": {
