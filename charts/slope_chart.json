@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Slope chart: age-standardised death rates by condition across remoteness areas",
-  "width": 230,
-  "height": 210,
+  "width": 200,
+  "height": 180,
   "data": {
     "url": "data/slope_chart_data.csv"
   },
