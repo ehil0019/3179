@@ -1,12 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
-  "title": "Population Age Structure by Remoteness Area",
-
   "data": {
     "url": "data/age_distribution.csv"
   },
-
   "transform": [
     {
       "calculate": "datum.Sex == 'Male' ? -datum.Percent : datum.Percent",
@@ -15,30 +11,49 @@
     {
       "calculate": "replace(replace(replace(datum.RA, /\\s+/g, ' '), /\\u00A0/g, ' '), /^\\s+|\\s+$/g, '')",
       "as": "CleanRA"
-    }   
+    },
+    {
+      "calculate": "replace(datum.CleanRA, '\\uFEFF', '')",
+      "as": "CleanRA"
+    },
+    {
+      "filter": "datum.CleanRA == 'Major cities' || datum.CleanRA == 'Inner regional' || datum.CleanRA == 'Outer regional' || datum.CleanRA == 'Remote' || datum.CleanRA == 'Very remote'"
+    }
   ],
-
   "facet": {
     "field": "CleanRA",
     "type": "nominal",
     "title": "Remoteness Area",
-    "sort": ["Major cities", "Inner regional", "Outer regional", "Remote", "Very remote"]
+    "sort": [
+      "Major cities",
+      "Inner regional",
+      "Outer regional",
+      "Remote",
+      "Very remote"
+    ]
   },
-
   "spec": {
-    "width": 200,
-    "height": 200,
-
+    "width": 160,
+    "height": 180,
     "mark": "bar",
-
     "encoding": {
       "y": {
         "field": "AgeGroup",
         "type": "ordinal",
-        "sort": ["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75-84","85+"],
+        "sort": [
+          "0-4",
+          "5-14",
+          "15-24",
+          "25-34",
+          "35-44",
+          "45-54",
+          "55-64",
+          "65-74",
+          "75-84",
+          "85+"
+        ],
         "title": "Age Group"
       },
-
       "x": {
         "field": "SignedPercent",
         "type": "quantitative",
@@ -49,22 +64,37 @@
           "labelExpr": "abs(datum.value)"
         }
       },
-
       "color": {
         "field": "Sex",
         "type": "nominal",
         "scale": {
-          "domain": ["Male", "Female"],
-          "range": ["#2d6a9f","#c05c2e"]
+          "domain": [
+            "Male",
+            "Female"
+          ],
+          "range": [
+            "#2d6a9f",
+            "#c05c2e"
+          ]
         },
         "title": "Sex"
       },
-
       "tooltip": [
-        {"field": "RA", "title": "Remoteness Area"},
-        {"field": "Sex"},
-        {"field": "AgeGroup", "title": "Age Group"},
-        {"field": "Percent", "title": "Percent"}
+        {
+          "field": "RA",
+          "title": "Remoteness Area"
+        },
+        {
+          "field": "Sex"
+        },
+        {
+          "field": "AgeGroup",
+          "title": "Age Group"
+        },
+        {
+          "field": "Percent",
+          "title": "Percent"
+        }
       ]
     }
   }
